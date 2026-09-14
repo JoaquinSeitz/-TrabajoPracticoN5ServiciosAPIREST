@@ -1,0 +1,6 @@
+@tp5_Trani_Joaco_Alex_HostAddress = http://localhost:5253
+
+GET {{tp5_Trani_Joaco_Alex_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
