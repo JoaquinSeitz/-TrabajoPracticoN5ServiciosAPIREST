@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tp5-Trani-Joaco-Alex")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7b508b71310c0b14c453f351fc00b46e06d0b47")]
 [assembly: System.Reflection.AssemblyProductAttribute("tp5-Trani-Joaco-Alex")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tp5-Trani-Joaco-Alex")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
