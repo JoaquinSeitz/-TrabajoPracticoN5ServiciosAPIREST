@@ -28,7 +28,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             return Ok(salidas);
         }
 
-        //  Buscar el detalle de una salida específica
+        // Buscar el detalle de una salida específica
         [HttpGet("{id}")]
         public async Task<ActionResult<SalidaProductos>> GetSalida(int id)
         {
@@ -62,7 +62,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             return Ok(new { Mensaje = "Venta registrada", StockRestante = producto.Stock });
         }
 
-        //   Modificar una salida existente
+        // Modificar una salida existente
         [HttpPut("{id}")]
         public async Task<IActionResult> ActualizarSalida(int id, [FromBody] SalidaProductos salidaModificada)
         {
@@ -92,7 +92,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             return NoContent();
         }
 
-        //   Eliminar un registro de salida
+        // Eliminar un registro de salida
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarSalida(int id)
         {
