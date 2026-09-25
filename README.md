@@ -30,12 +30,6 @@ El repositorio no contiene contraseñas por seguridad. Para compilar y ejecutar 
 
 ---
 
-## 🏗️ Deuda Técnica Aceptada (ADR)
-
-* **Normalización:** Se omitió la 3FN por definición de alcance académico; la redundancia se mitiga con validaciones estrictas en los endpoints.
-
----
-
 ## 🔗 Endpoints Principales
 
 | Método | Endpoint | Acción | Acceso |
@@ -50,4 +44,4 @@ El repositorio no contiene contraseñas por seguridad. Para compilar y ejecutar 
 
 ## 🌐 Producción
 
-**URL de la API:** [https://tp5-joaco-alex.runasp.net](https://tp5-joaco-alex.runasp.net)
+**URL de la API:** (https://tp5-joaco-alex.runasp.net)
