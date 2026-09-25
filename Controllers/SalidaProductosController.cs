@@ -35,5 +35,60 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 
             return Ok(new { Mensaje = "Venta registrada", StockRestante = producto.Stock });
         }
+    
+
+    // 4. PUT: Modificar una salida existente
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarSalida(int id, [FromBody] SalidaProductos salidaModificada)
+        {
+            if (id != salidaModificada.SalidaProductoId)
+            {
+                return BadRequest("El ID de la URL no coincide con el del registro.");
+            }
+
+            _context.Entry(salidaModificada).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SalidaExiste(id))
+                {
+                    return NotFound("Salida no encontrada para actualizar.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // 5. DELETE: Eliminar un registro de salida
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> EliminarSalida(int id)
+        {
+            var salida = await _context.SalidaProductos.FindAsync(id);
+            if (salida == null)
+            {
+                return NotFound("Salida no encontrada para eliminar.");
+            }
+
+            _context.SalidaProductos.Remove(salida);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        // Método auxiliar necesario para el PUT
+        private bool SalidaExiste(int id)
+        {
+            return _context.SalidaProductos.Any(e => e.SalidaProductoId == id);
+        }
     }
 }
+
+

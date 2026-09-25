@@ -30,5 +30,57 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 
             return Ok(new { Mensaje = "Ingreso registrado", StockActual = producto.Stock });
         }
+    
+       // Modificar un ingreso existente
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarIngreso(int id, [FromBody] IngresoProductos ingresoModificado)
+        {
+            if (id != ingresoModificado.IngresoProductoId)
+            {
+                return BadRequest("El ID de la URL no coincide con el del registro.");
+            }
+
+            _context.Entry(ingresoModificado).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!IngresoExiste(id))
+                {
+                    return NotFound("Ingreso no encontrado para actualizar.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent(); // 204 No Content indica que se actualizó con éxito
+        }
+
+        // Eliminar un registro de ingreso
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> EliminarIngreso(int id)
+        {
+            var ingreso = await _context.IngresoProductos.FindAsync(id);
+            if (ingreso == null)
+            {
+                return NotFound("Ingreso no encontrado para eliminar.");
+            }
+
+            _context.IngresoProductos.Remove(ingreso);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        // Método auxiliar necesario para el PUT
+        private bool IngresoExiste(int id)
+        {
+            return _context.IngresoProductos.Any(e => e.IngresoProductoId == id);
+        }
     }
 }
