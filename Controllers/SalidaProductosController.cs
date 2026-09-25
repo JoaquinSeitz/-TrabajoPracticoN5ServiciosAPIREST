@@ -60,7 +60,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
         }
     
 
-    // 4. PUT: Modificar una salida existente
+    //  Modificar una salida existente
         [HttpPut("{id}")]
         public async Task<IActionResult> ActualizarSalida(int id, [FromBody] SalidaProductos salidaModificada)
         {
