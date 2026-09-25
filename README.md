@@ -33,7 +33,6 @@ El repositorio no contiene contraseñas por seguridad. Para compilar y ejecutar 
 ## 🏗️ Deuda Técnica Aceptada (ADR)
 
 * **Normalización:** Se omitió la 3FN por definición de alcance académico; la redundancia se mitiga con validaciones estrictas en los endpoints.
-* **Acceso a Datos:** `ApplicationDbContext` opera temporalmente de forma directa en los controladores. La refactorización al Patrón Repositorio está planificada como próxima iteración arquitectónica.
 
 ---
 
