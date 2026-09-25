@@ -16,6 +16,28 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             _context = context;
         }
 
+       
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<IngresoProductos>>> GetIngresos()
+        {
+            return await _context.IngresoProductos.ToListAsync();
+        }
+
+       
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IngresoProductos>> GetIngreso(int id)
+        {
+            var ingreso = await _context.IngresoProductos.FindAsync(id);
+
+            if (ingreso == null)
+            {
+                return NotFound("Ingreso no encontrado.");
+            }
+
+            return ingreso;
+        }
+
+       
         [HttpPost]
         public async Task<IActionResult> RegistrarIngreso([FromBody] IngresoProductos nuevoIngreso)
         {
@@ -29,6 +51,58 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(new { Mensaje = "Ingreso registrado", StockActual = producto.Stock });
+        }
+
+      
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarIngreso(int id, [FromBody] IngresoProductos ingresoModificado)
+        {
+            if (id != ingresoModificado.IngresoProductoId)
+            {
+                return BadRequest("El ID de la URL no coincide con el del registro.");
+            }
+
+            _context.Entry(ingresoModificado).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!IngresoExiste(id))
+                {
+                    return NotFound("Ingreso no encontrado para actualizar.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent(); 
+        }
+
+        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> EliminarIngreso(int id)
+        {
+            var ingreso = await _context.IngresoProductos.FindAsync(id);
+            if (ingreso == null)
+            {
+                return NotFound("Ingreso no encontrado para eliminar.");
+            }
+
+            _context.IngresoProductos.Remove(ingreso);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        
+        private bool IngresoExiste(int id)
+        {
+            return _context.IngresoProductos.Any(e => e.IngresoProductoId == id);
         }
     }
 }
