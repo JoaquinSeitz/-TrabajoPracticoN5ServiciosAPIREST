@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using tp5_Trani_Joaco_Alex.Data;
 using tp5_Trani_Joaco_Alex.Models;
+using tp5_Trani_Joaco_Alex.DTOs.Request;
+using tp5_Trani_Joaco_Alex.DTOs.Response;
 
 namespace tp5_Trani_Joaco_Alex.Controllers
 {
@@ -16,97 +18,147 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             _context = context;
         }
 
-        // Listar todos los ingresos (Historial) CON PAGINACIÓN
         [HttpGet]
         public async Task<IActionResult> GetIngresos([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var ingresos = await _context.IngresoProductos
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+            try
+            {
+                var ingresos = await _context.IngresoProductos
+                    .Include(i => i.Producto)
+                    .Include(i => i.Proveedor)
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .Select(i => new IngresoProductoResponseDTO
+                    {
+                        IngresoProductoId = i.IngresoProductoId,
+                        Fecha = i.Fecha,
+                        Cantidad = i.Cantidad,
+                        ProductoId = i.ProductoId,
+                        ProductoNombre = i.Producto != null ? i.Producto.Nombre : "Desconocido",
+                        ProveedorId = i.ProveedorId,
+                        ProveedorNombre = i.Proveedor != null ? i.Proveedor.RazonSocial : "Desconocido",
+                        UsuarioId = i.UsuarioId
+                    })
+                    .ToListAsync();
 
-            return Ok(ingresos);
+                return Ok(ingresos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando el historial de ingresos.", error = ex.Message });
+            }
         }
 
-        // GET {id}: Buscar el detalle de un ingreso específico
         [HttpGet("{id}")]
-        public async Task<ActionResult<IngresoProductos>> GetIngreso(int id)
+        public async Task<IActionResult> GetIngreso(int id)
         {
-            var ingreso = await _context.IngresoProductos.FindAsync(id);
-
-            if (ingreso == null)
+            try
             {
-                return NotFound("Ingreso no encontrado.");
-            }
+                var ingreso = await _context.IngresoProductos
+                    .Include(i => i.Producto)
+                    .Include(i => i.Proveedor)
+                    .FirstOrDefaultAsync(i => i.IngresoProductoId == id);
 
-            return ingreso;
+                if (ingreso == null) return NotFound(new { mensaje = "Ingreso no encontrado." });
+
+                var response = new IngresoProductoResponseDTO
+                {
+                    IngresoProductoId = ingreso.IngresoProductoId,
+                    Fecha = ingreso.Fecha,
+                    Cantidad = ingreso.Cantidad,
+                    ProductoId = ingreso.ProductoId,
+                    ProductoNombre = ingreso.Producto != null ? ingreso.Producto.Nombre : "Desconocido",
+                    ProveedorId = ingreso.ProveedorId,
+                    ProveedorNombre = ingreso.Proveedor != null ? ingreso.Proveedor.RazonSocial : "Desconocido",
+                    UsuarioId = ingreso.UsuarioId
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando el ingreso.", error = ex.Message });
+            }
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegistrarIngreso([FromBody] IngresoProductos nuevoIngreso)
+        public async Task<IActionResult> RegistrarIngreso([FromBody] IngresoProductoRequestDTO dto)
         {
-            var producto = await _context.Productos.FindAsync(nuevoIngreso.ProductoId);
-            if (producto == null) return NotFound("Producto no encontrado.");
-
-            producto.Stock += nuevoIngreso.Cantidad;
-            nuevoIngreso.Fecha = DateTime.Now;
-
-            _context.IngresoProductos.Add(nuevoIngreso);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { Mensaje = "Ingreso registrado", StockActual = producto.Stock });
-        }
-
-        // PUT: Modificar un ingreso existente
-        [HttpPut("{id}")]
-        public async Task<IActionResult> ActualizarIngreso(int id, [FromBody] IngresoProductos ingresoModificado)
-        {
-            if (id != ingresoModificado.IngresoProductoId)
-            {
-                return BadRequest("El ID de la URL no coincide con el del registro.");
-            }
-
-            _context.Entry(ingresoModificado).State = EntityState.Modified;
+            if (dto == null) return BadRequest(new { mensaje = "Los datos del ingreso son nulos." });
 
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!IngresoExiste(id))
-                {
-                    return NotFound("Ingreso no encontrado para actualizar.");
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                var producto = await _context.Productos.FindAsync(dto.ProductoId);
+                if (producto == null) return NotFound(new { mensaje = "Producto no encontrado." });
 
-            return NoContent();
+                // Sumamos el stock al producto
+                producto.Stock += dto.Cantidad;
+
+                // Creamos la entidad segura
+                var nuevoIngreso = new IngresoProductos
+                {
+                    Cantidad = dto.Cantidad,
+                    ProductoId = dto.ProductoId,
+                    ProveedorId = dto.ProveedorId,
+                    UsuarioId = dto.UsuarioId,
+                    Fecha = DateTime.Now // El servidor dicta la fecha, no el cliente
+                };
+
+                _context.IngresoProductos.Add(nuevoIngreso);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { Mensaje = "Ingreso registrado", StockActual = producto.Stock, IngresoId = nuevoIngreso.IngresoProductoId });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error registrando el ingreso.", error = ex.Message });
+            }
         }
 
-        // DELETE: Eliminar un registro de ingreso
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarIngreso(int id, [FromBody] IngresoProductoRequestDTO dto)
+        {
+            if (dto == null) return BadRequest(new { mensaje = "Los datos del ingreso son nulos." });
+
+            try
+            {
+                var ingresoExistente = await _context.IngresoProductos.FindAsync(id);
+                if (ingresoExistente == null) return NotFound(new { mensaje = "Ingreso no encontrado para actualizar." });
+
+                // Ojo: en un sistema real de inventario, modificar la cantidad en un PUT 
+                // implicaría recalcular el stock del Producto (restar la cantidad vieja y sumar la nueva). 
+                // Aquí solo actualizamos los datos básicos del registro por seguridad del DTO.
+                ingresoExistente.Cantidad = dto.Cantidad;
+                ingresoExistente.ProductoId = dto.ProductoId;
+                ingresoExistente.ProveedorId = dto.ProveedorId;
+                ingresoExistente.UsuarioId = dto.UsuarioId;
+
+                await _context.SaveChangesAsync();
+                return Ok(new { mensaje = "Ingreso actualizado exitosamente." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error actualizando el ingreso.", error = ex.Message });
+            }
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarIngreso(int id)
         {
-            var ingreso = await _context.IngresoProductos.FindAsync(id);
-            if (ingreso == null)
+            try
             {
-                return NotFound("Ingreso no encontrado para eliminar.");
+                var ingreso = await _context.IngresoProductos.FindAsync(id);
+                if (ingreso == null) return NotFound(new { mensaje = "Ingreso no encontrado para eliminar." });
+
+                _context.IngresoProductos.Remove(ingreso);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { mensaje = "Ingreso eliminado exitosamente." });
             }
-
-            _context.IngresoProductos.Remove(ingreso);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        // Método auxiliar necesario para el PUT
-        private bool IngresoExiste(int id)
-        {
-            return _context.IngresoProductos.Any(e => e.IngresoProductoId == id);
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error eliminando el ingreso.", error = ex.Message });
+            }
         }
     }
 }

@@ -20,92 +20,119 @@ namespace tp5_Trani_Joaco_Alex.Controllers
         [HttpGet]
         public async Task<IActionResult> GetSalidas([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var salidas = await _context.SalidaProductos
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+            try
+            {
+                var salidas = await _context.SalidaProductos
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync();
 
-            return Ok(salidas);
+                return Ok(salidas);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando el historial de salidas.", error = ex.Message });
+            }
         }
 
         // Buscar el detalle de una salida específica
         [HttpGet("{id}")]
-        public async Task<ActionResult<SalidaProductos>> GetSalida(int id)
+        public async Task<IActionResult> GetSalida(int id)
         {
-            var salida = await _context.SalidaProductos.FindAsync(id);
-
-            if (salida == null)
+            try
             {
-                return NotFound("Salida no encontrada.");
-            }
+                var salida = await _context.SalidaProductos.FindAsync(id);
 
-            return salida;
+                if (salida == null)
+                {
+                    return NotFound(new { mensaje = "Salida no encontrada." });
+                }
+
+                return Ok(salida);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando la salida.", error = ex.Message });
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> RegistrarSalida([FromBody] SalidaProductos nuevaSalida)
         {
-            var producto = await _context.Productos.FindAsync(nuevaSalida.ProductoId);
-            if (producto == null) return NotFound("Producto no encontrado.");
+            if (nuevaSalida == null) return BadRequest(new { mensaje = "Los datos de la salida son nulos." });
 
-            if (producto.Stock < nuevaSalida.Cantidad)
+            try
             {
-                return BadRequest($"Stock insuficiente. Disponible: {producto.Stock}");
+                var producto = await _context.Productos.FindAsync(nuevaSalida.ProductoId);
+                if (producto == null) return NotFound(new { mensaje = "Producto no encontrado." });
+
+                if (producto.Stock < nuevaSalida.Cantidad)
+                {
+                    return BadRequest(new { mensaje = $"Stock insuficiente. Disponible: {producto.Stock}" });
+                }
+
+                producto.Stock -= nuevaSalida.Cantidad;
+                nuevaSalida.Fecha = DateTime.Now;
+
+                _context.SalidaProductos.Add(nuevaSalida);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { mensaje = "Venta registrada exitosamente.", StockRestante = producto.Stock, SalidaId = nuevaSalida.SalidaProductoId });
             }
-
-            producto.Stock -= nuevaSalida.Cantidad;
-            nuevaSalida.Fecha = DateTime.Now;
-
-            _context.SalidaProductos.Add(nuevaSalida);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { Mensaje = "Venta registrada", StockRestante = producto.Stock });
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error registrando la salida.", error = ex.Message });
+            }
         }
 
         // Modificar una salida existente
         [HttpPut("{id}")]
         public async Task<IActionResult> ActualizarSalida(int id, [FromBody] SalidaProductos salidaModificada)
         {
-            if (id != salidaModificada.SalidaProductoId)
+            if (salidaModificada == null || id != salidaModificada.SalidaProductoId)
             {
-                return BadRequest("El ID de la URL no coincide con el del registro.");
+                return BadRequest(new { mensaje = "Datos inválidos o el ID de la URL no coincide con el del registro." });
             }
-
-            _context.Entry(salidaModificada).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
                 if (!SalidaExiste(id))
                 {
-                    return NotFound("Salida no encontrada para actualizar.");
+                    return NotFound(new { mensaje = "Salida no encontrada para actualizar." });
                 }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
+                _context.Entry(salidaModificada).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok(new { mensaje = "Salida actualizada exitosamente." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error al actualizar la salida.", error = ex.Message });
+            }
         }
 
         // Eliminar un registro de salida
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarSalida(int id)
         {
-            var salida = await _context.SalidaProductos.FindAsync(id);
-            if (salida == null)
+            try
             {
-                return NotFound("Salida no encontrada para eliminar.");
+                var salida = await _context.SalidaProductos.FindAsync(id);
+                if (salida == null)
+                {
+                    return NotFound(new { mensaje = "Salida no encontrada para eliminar." });
+                }
+
+                _context.SalidaProductos.Remove(salida);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { mensaje = "Salida eliminada exitosamente." });
             }
-
-            _context.SalidaProductos.Remove(salida);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error eliminando la salida.", error = ex.Message });
+            }
         }
 
         // Método auxiliar necesario para el PUT
