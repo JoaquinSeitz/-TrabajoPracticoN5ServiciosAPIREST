@@ -16,6 +16,30 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             _context = context;
         }
 
+
+        //  Listar todos los ingresos (Historial)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<IngresoProductos>>> GetIngresos()
+        {
+            return await _context.IngresoProductos.ToListAsync();
+        }
+
+        // Buscar el detalle de un ingreso específico
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IngresoProductos>> GetIngreso(int id)
+        {
+            var ingreso = await _context.IngresoProductos.FindAsync(id);
+
+            if (ingreso == null)
+            {
+                return NotFound("Ingreso no encontrado.");
+            }
+
+            return ingreso;
+        }
+
+
+
         [HttpPost]
         public async Task<IActionResult> RegistrarIngreso([FromBody] IngresoProductos nuevoIngreso)
         {

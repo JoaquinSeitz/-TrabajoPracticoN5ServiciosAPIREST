@@ -16,6 +16,29 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             _context = context;
         }
 
+
+        //  Listar todas las salidas (Historial)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<SalidaProductos>>> GetSalidas()
+        {
+            return await _context.SalidaProductos.ToListAsync();
+        }
+
+        //  GET {id}: Buscar el detalle de una salida específica
+        [HttpGet("{id}")]
+        public async Task<ActionResult<SalidaProductos>> GetSalida(int id)
+        {
+            var salida = await _context.SalidaProductos.FindAsync(id);
+
+            if (salida == null)
+            {
+                return NotFound("Salida no encontrada.");
+            }
+
+            return salida;
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> RegistrarSalida([FromBody] SalidaProductos nuevaSalida)
         {
