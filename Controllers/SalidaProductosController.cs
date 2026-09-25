@@ -16,15 +16,19 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             _context = context;
         }
 
-
-        //  Listar todas las salidas (Historial)
+        // Listar todas las salidas (Historial) CON PAGINACIÓN
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SalidaProductos>>> GetSalidas()
+        public async Task<IActionResult> GetSalidas([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            return await _context.SalidaProductos.ToListAsync();
+            var salidas = await _context.SalidaProductos
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return Ok(salidas);
         }
 
-        //  GET {id}: Buscar el detalle de una salida específica
+        //  Buscar el detalle de una salida específica
         [HttpGet("{id}")]
         public async Task<ActionResult<SalidaProductos>> GetSalida(int id)
         {
@@ -37,7 +41,6 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 
             return salida;
         }
-
 
         [HttpPost]
         public async Task<IActionResult> RegistrarSalida([FromBody] SalidaProductos nuevaSalida)
@@ -58,9 +61,8 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 
             return Ok(new { Mensaje = "Venta registrada", StockRestante = producto.Stock });
         }
-    
 
-    // 4. PUT: Modificar una salida existente
+        //   Modificar una salida existente
         [HttpPut("{id}")]
         public async Task<IActionResult> ActualizarSalida(int id, [FromBody] SalidaProductos salidaModificada)
         {
@@ -90,7 +92,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             return NoContent();
         }
 
-        // 5. DELETE: Eliminar un registro de salida
+        //   Eliminar un registro de salida
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarSalida(int id)
         {
@@ -113,5 +115,3 @@ namespace tp5_Trani_Joaco_Alex.Controllers
         }
     }
 }
-
-

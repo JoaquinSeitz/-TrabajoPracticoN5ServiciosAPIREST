@@ -16,15 +16,19 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             _context = context;
         }
 
-
-        //  Listar todos los ingresos (Historial)
+        // Listar todos los ingresos (Historial) CON PAGINACIÓN
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<IngresoProductos>>> GetIngresos()
+        public async Task<IActionResult> GetIngresos([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            return await _context.IngresoProductos.ToListAsync();
+            var ingresos = await _context.IngresoProductos
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return Ok(ingresos);
         }
 
-        // Buscar el detalle de un ingreso específico
+        // GET {id}: Buscar el detalle de un ingreso específico
         [HttpGet("{id}")]
         public async Task<ActionResult<IngresoProductos>> GetIngreso(int id)
         {
@@ -37,8 +41,6 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 
             return ingreso;
         }
-
-
 
         [HttpPost]
         public async Task<IActionResult> RegistrarIngreso([FromBody] IngresoProductos nuevoIngreso)
@@ -54,8 +56,8 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 
             return Ok(new { Mensaje = "Ingreso registrado", StockActual = producto.Stock });
         }
-    
-       // Modificar un ingreso existente
+
+        // PUT: Modificar un ingreso existente
         [HttpPut("{id}")]
         public async Task<IActionResult> ActualizarIngreso(int id, [FromBody] IngresoProductos ingresoModificado)
         {
@@ -82,10 +84,10 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 }
             }
 
-            return NoContent(); // 204 No Content indica que se actualizó con éxito
+            return NoContent();
         }
 
-        // Eliminar un registro de ingreso
+        // DELETE: Eliminar un registro de ingreso
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarIngreso(int id)
         {
