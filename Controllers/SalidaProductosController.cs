@@ -90,7 +90,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             return NoContent();
         }
 
-        // 5. DELETE: Eliminar un registro de salida
+        //  DELETE: Eliminar un registro de salida
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarSalida(int id)
         {
