@@ -7,7 +7,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // <--- ¡LA MAGIA DE LA SEGURIDAD ESTÁ ACÁ! Esto bloquea todo el controlador.
+    [Authorize] // Esto bloquea todo el controlador.
     public class ClientesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
