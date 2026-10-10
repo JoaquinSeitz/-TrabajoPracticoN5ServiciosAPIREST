@@ -72,7 +72,11 @@ namespace tp5_Trani_Joaco_Alex.Controllers
         [HttpPut("{id}")]
         public IActionResult ModificarCliente(int id, [FromBody] Clientes clienteActualizado)
         {
-            if (clienteActualizado == null) return BadRequest(new { mensaje = "Datos inválidos." });
+            // 1. LA NUEVA BARRERA: Validamos que los IDs coincidan antes de tocar la base de datos
+            if (clienteActualizado == null || id != clienteActualizado.ClienteId)
+            {
+                return BadRequest(new { mensaje = "Datos inválidos o el ID de la URL no coincide con el del cuerpo." });
+            }
 
             try
             {
