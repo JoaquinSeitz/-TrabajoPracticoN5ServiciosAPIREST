@@ -1,0 +1,116 @@
+2026-10-21 15:30:13.621 -03:00 [FTL] Fallo crítico no controlado durante el inicio de la aplicación.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST\Program.cs:line 57
+2026-10-21 15:30:35.591 -03:00 [FTL] Fallo crítico no controlado durante el inicio de la aplicación.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST\Program.cs:line 57
+2026-10-21 15:30:41.371 -03:00 [FTL] Fallo crítico no controlado durante el inicio de la aplicación.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST\Program.cs:line 57
+2026-10-21 15:42:43.431 -03:00 [FTL] Fallo crítico no controlado durante el inicio de la aplicación.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST\Program.cs:line 57
+2026-10-21 15:42:49.505 -03:00 [FTL] Fallo crítico no controlado durante el inicio de la aplicación.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST\Program.cs:line 57
+2026-10-21 15:43:15.490 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-21 15:43:15.537 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-21 15:43:16.145 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-21 15:43:16.287 -03:00 [INF] Hosting environment: Development
+2026-10-21 15:43:16.296 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-21 15:43:35.332 -03:00 [INF] HTTP GET / respondió 307 en 12.1160 ms
+2026-10-21 15:43:35.534 -03:00 [INF] HTTP GET / respondió 404 en 82.1805 ms
+2026-10-21 15:44:48.500 -03:00 [INF] HTTP GET /swagger respondió 301 en 3.4317 ms
+2026-10-21 15:44:48.707 -03:00 [INF] HTTP GET /swagger/index.html respondió 200 en 196.1548 ms
+2026-10-21 15:44:48.788 -03:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js respondió 200 en 90.9847 ms
+2026-10-21 15:44:48.788 -03:00 [INF] HTTP GET /swagger/swagger-ui.css respondió 200 en 96.0108 ms
+2026-10-21 15:44:48.923 -03:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js respondió 200 en 256.1005 ms
+2026-10-21 15:44:49.507 -03:00 [INF] HTTP GET /swagger/v1/swagger.json respondió 200 en 45.4686 ms
+2026-10-21 15:44:49.528 -03:00 [INF] HTTP GET /swagger/favicon-32x32.png respondió 200 en 0.3435 ms
+2026-10-21 15:47:46.370 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-21 15:47:46.423 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-21 15:47:46.479 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-21 15:47:46.481 -03:00 [INF] Hosting environment: Development
+2026-10-21 15:47:46.481 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-21 15:47:56.428 -03:00 [INF] HTTP GET /swagger respondió 301 en 6.0754 ms
+2026-10-21 15:47:56.558 -03:00 [INF] HTTP GET /swagger/index.html respondió 200 en 100.7909 ms
+2026-10-21 15:47:56.633 -03:00 [INF] HTTP GET /swagger/swagger-ui.css respondió 200 en 42.4728 ms
+2026-10-21 15:47:56.641 -03:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js respondió 200 en 51.0510 ms
+2026-10-21 15:47:56.661 -03:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js respondió 200 en 71.8391 ms
+2026-10-21 15:47:57.151 -03:00 [INF] HTTP GET /swagger/v1/swagger.json respondió 200 en 38.4245 ms
+2026-10-21 15:47:57.193 -03:00 [INF] HTTP GET /swagger/favicon-32x32.png respondió 200 en 0.5660 ms
+2026-10-21 16:03:26.941 -03:00 [INF] HTTP GET /api/Usuarios respondió 307 en 1.8669 ms
+2026-10-21 16:03:27.107 -03:00 [INF] HTTP GET /api/Usuarios respondió 401 en 74.4499 ms
+2026-10-21 16:05:01.189 -03:00 [INF] HTTP POST /api/Usuarios/registro respondió 307 en 0.2089 ms
+2026-10-21 16:05:01.203 -03:00 [INF] HTTP OPTIONS /api/Usuarios/registro respondió 204 en 2.3081 ms
+2026-10-21 16:05:02.248 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-21 16:05:03.663 -03:00 [INF] HTTP POST /api/Usuarios/registro respondió 200 en 2454.4168 ms
+2026-10-21 16:06:35.353 -03:00 [INF] HTTP POST /api/Usuarios/registro respondió 307 en 0.0810 ms
+2026-10-21 16:06:35.364 -03:00 [INF] HTTP OPTIONS /api/Usuarios/registro respondió 204 en 0.6783 ms
+2026-10-21 16:06:35.425 -03:00 [INF] HTTP POST /api/Usuarios/registro respondió 200 en 54.3774 ms
+2026-10-21 16:08:01.094 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 307 en 0.1464 ms
+2026-10-21 16:08:01.107 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 0.3124 ms
+2026-10-21 16:08:01.358 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 242.7118 ms
+2026-10-21 16:12:42.516 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-21 16:12:42.580 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-21 16:12:42.716 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-21 16:12:42.718 -03:00 [INF] Hosting environment: Development
+2026-10-21 16:12:42.727 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-21 16:12:45.149 -03:00 [INF] HTTP GET /swagger/index.html respondió 200 en 242.6311 ms
+2026-10-21 16:12:45.720 -03:00 [INF] HTTP GET /swagger/v1/swagger.json respondió 200 en 75.6246 ms
+2026-10-21 16:14:09.416 -03:00 [INF] HTTP POST /api/Usuarios/registro respondió 307 en 3.5587 ms
+2026-10-21 16:14:09.506 -03:00 [INF] HTTP OPTIONS /api/Usuarios/registro respondió 204 en 3.0228 ms
+2026-10-21 16:14:10.691 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-21 16:14:11.998 -03:00 [INF] HTTP POST /api/Usuarios/registro respondió 200 en 2477.7726 ms
+2026-10-21 16:14:50.594 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 307 en 0.2904 ms
+2026-10-21 16:14:50.612 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 1.6809 ms
+2026-10-21 16:14:50.775 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 155.8447 ms
+2026-10-21 16:15:44.995 -03:00 [INF] HTTP POST /api/Categorias respondió 307 en 0.1451 ms
+2026-10-21 16:15:45.048 -03:00 [INF] HTTP OPTIONS /api/Categorias respondió 204 en 10.4570 ms
+2026-10-21 16:15:45.079 -03:00 [INF] HTTP POST /api/Categorias respondió 401 en 18.9597 ms
+2026-10-21 16:16:51.028 -03:00 [INF] HTTP POST /api/Categorias respondió 307 en 0.0918 ms
+2026-10-21 16:16:51.040 -03:00 [INF] HTTP OPTIONS /api/Categorias respondió 204 en 0.1608 ms
+2026-10-21 16:16:51.051 -03:00 [INF] HTTP POST /api/Categorias respondió 401 en 3.9991 ms
+2026-10-21 16:20:09.729 -03:00 [INF] HTTP POST /api/Categorias respondió 307 en 0.0817 ms
+2026-10-21 16:20:09.781 -03:00 [INF] HTTP OPTIONS /api/Categorias respondió 204 en 3.2488 ms
+2026-10-21 16:20:09.795 -03:00 [INF] HTTP POST /api/Categorias respondió 401 en 3.2138 ms
+2026-10-21 16:34:56.383 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-21 16:34:56.431 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-21 16:34:56.536 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-21 16:34:56.537 -03:00 [INF] Hosting environment: Development
+2026-10-21 16:34:56.538 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-21 16:35:02.816 -03:00 [INF] HTTP GET /swagger/index.html respondió 200 en 191.9688 ms
+2026-10-21 16:35:03.406 -03:00 [INF] HTTP GET /swagger/v1/swagger.json respondió 200 en 41.4426 ms
+2026-10-21 16:35:40.718 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-21 16:35:41.971 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 2414.6029 ms
+2026-10-21 16:36:38.166 -03:00 [INF] HTTP POST /api/Categorias respondió 200 en 588.2998 ms

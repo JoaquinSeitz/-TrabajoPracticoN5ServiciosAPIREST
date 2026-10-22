@@ -1,10 +1,11 @@
-﻿namespace tp5_Trani_Joaco_Alex.DTOs.Request
+﻿using System.Collections.Generic;
+
+namespace tp5_Trani_Joaco_Alex.DTOs.Request
 {
     public class IngresoProductoRequestDTO
     {
-        public int Cantidad { get; set; }
-        public int ProductoId { get; set; }
         public int ProveedorId { get; set; }
         public int UsuarioId { get; set; }
+        public List<DetalleMovimientoRequestDTO> Detalles { get; set; } = new List<DetalleMovimientoRequestDTO>();
     }
 }

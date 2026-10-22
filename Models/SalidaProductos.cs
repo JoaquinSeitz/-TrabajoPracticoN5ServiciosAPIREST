@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,15 +13,6 @@ namespace tp5_Trani_Joaco_Alex.Models
         public DateTime Fecha { get; set; } = DateTime.Now;
 
         [Required]
-        public int Cantidad { get; set; }
-
-        [Required]
-        public int ProductoId { get; set; }
-
-        [ForeignKey("ProductoId")]
-        public Productos? Producto { get; set; }
-
-        [Required]
         public int ClienteId { get; set; }
 
         [ForeignKey("ClienteId")]
@@ -31,5 +23,8 @@ namespace tp5_Trani_Joaco_Alex.Models
 
         [ForeignKey("UsuarioId")]
         public Usuarios? Usuario { get; set; }
+
+        // Relación 1 a Muchos con los detalles
+        public List<DetalleSalidaProductos> Detalles { get; set; } = new List<DetalleSalidaProductos>();
     }
 }

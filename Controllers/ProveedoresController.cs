@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using tp5_Trani_Joaco_Alex.Data;
 using tp5_Trani_Joaco_Alex.Models;
@@ -7,6 +8,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] // Bloqueamos el controlador para usuarios no autenticados
     public class ProveedoresController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -35,7 +37,26 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProveedor(int id)
+        {
+            try
+            {
+                var proveedor = await _context.Proveedores
+                    .FirstOrDefaultAsync(p => p.ProveedorId == id && p.Activo);
+
+                if (proveedor == null) return NotFound(new { mensaje = "Proveedor no encontrado." });
+
+                return Ok(proveedor);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando el proveedor.", error = ex.Message });
+            }
+        }
+
         [HttpPost]
+        [Authorize(Roles = Roles.Admin)] // Solo Admin da de alta proveedores
         public async Task<IActionResult> CrearProveedor([FromBody] Proveedores proveedor)
         {
             if (proveedor == null) return BadRequest(new { mensaje = "El proveedor proporcionado es nulo." });
@@ -46,7 +67,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 _context.Proveedores.Add(proveedor);
                 await _context.SaveChangesAsync();
 
-                return Ok(new { mensaje = "Proveedor creado", Proveedor = proveedor });
+                return Ok(new { mensaje = "Proveedor creado exitosamente.", proveedor });
             }
             catch (Exception ex)
             {
@@ -55,17 +76,28 @@ namespace tp5_Trani_Joaco_Alex.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> ActualizarProveedor(int id, [FromBody] Proveedores proveedor)
+        [Authorize(Roles = Roles.Admin)]
+        public async Task<IActionResult> ActualizarProveedor(int id, [FromBody] Proveedores proveedorActualizado)
         {
-            if (proveedor == null || id != proveedor.ProveedorId)
-                return BadRequest(new { mensaje = "Datos inválidos o el ID no coincide." });
+            if (proveedorActualizado == null || id != proveedorActualizado.ProveedorId)
+                return BadRequest(new { mensaje = "Datos inválidos o el ID de la URL no coincide con el del cuerpo." });
 
             try
             {
-                _context.Entry(proveedor).State = EntityState.Modified;
+                var proveedorExistente = await _context.Proveedores
+                    .FirstOrDefaultAsync(p => p.ProveedorId == id && p.Activo);
+
+                if (proveedorExistente == null)
+                    return NotFound(new { mensaje = "Proveedor no encontrado o inactivo." });
+
+                // Mapeamos los datos manteniendo intacto Activo = true
+                proveedorExistente.RazonSocial = proveedorActualizado.RazonSocial;
+                proveedorExistente.Telefono = proveedorActualizado.Telefono;
+                proveedorExistente.Email = proveedorActualizado.Email;
+
                 await _context.SaveChangesAsync();
 
-                return Ok(new { mensaje = "Proveedor actualizado" });
+                return Ok(new { mensaje = "Proveedor actualizado exitosamente.", proveedor = proveedorExistente });
             }
             catch (Exception ex)
             {
@@ -74,6 +106,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<IActionResult> EliminarProveedor(int id)
         {
             try
