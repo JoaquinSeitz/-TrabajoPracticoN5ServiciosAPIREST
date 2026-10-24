@@ -1,0 +1,120 @@
+2026-10-23 16:51:08.290 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-23 16:51:08.366 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-23 16:51:08.498 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-23 16:51:08.502 -03:00 [INF] Hosting environment: Development
+2026-10-23 16:51:08.504 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-23 17:00:03.321 -03:00 [INF] HTTP GET /swagger/index.html respondió 200 en 185.2439 ms
+2026-10-23 17:00:03.964 -03:00 [INF] HTTP GET /swagger/v1/swagger.json respondió 200 en 109.0784 ms
+2026-10-23 17:01:13.410 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-23 17:01:15.141 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 3213.4154 ms
+2026-10-23 17:04:46.941 -03:00 [INF] HTTP GET /swagger/index.html respondió 200 en 10.1730 ms
+2026-10-23 17:04:47.448 -03:00 [INF] HTTP GET /swagger/v1/swagger.json respondió 200 en 42.1083 ms
+2026-10-23 17:05:21.538 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 70.8282 ms
+2026-10-23 17:46:47.419 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 856.0247 ms
+2026-10-23 18:03:22.193 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 1666.8212 ms
+2026-10-23 18:03:44.371 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 18:03:44.377 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 18:03:44.524 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 284.2761 ms
+2026-10-23 18:04:00.577 -03:00 [INF] HTTP PUT /api/Productos/1 respondió 401 en 45.7449 ms
+2026-10-23 18:04:09.157 -03:00 [INF] HTTP PUT /api/Productos/1 respondió 401 en 4.5520 ms
+2026-10-23 18:04:11.419 -03:00 [INF] HTTP PUT /api/Productos/1 respondió 401 en 146.7157 ms
+2026-10-23 18:23:14.285 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 224.9841 ms
+2026-10-23 18:23:25.127 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 370.2055 ms
+2026-10-23 18:23:48.471 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 65.5887 ms
+2026-10-23 18:27:48.399 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 568.1226 ms
+2026-10-23 18:28:24.632 -03:00 [INF] HTTP PUT /api/Productos/5 respondió 200 en 483.3204 ms
+2026-10-23 18:28:24.685 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 35.4496 ms
+2026-10-23 18:35:06.303 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 491.4393 ms
+2026-10-23 18:35:28.387 -03:00 [INF] HTTP PUT /api/Productos/1 respondió 200 en 65.9578 ms
+2026-10-23 18:35:28.474 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 38.1713 ms
+2026-10-23 18:52:41.508 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 444.8411 ms
+2026-10-23 18:53:24.705 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 67.6527 ms
+2026-10-23 18:53:30.223 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 55.1851 ms
+2026-10-23 18:58:39.050 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 86.6994 ms
+2026-10-23 18:58:58.787 -03:00 [INF] HTTP PUT /api/Productos/1 respondió 200 en 27.6191 ms
+2026-10-23 18:58:58.869 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 28.9298 ms
+2026-10-23 19:07:52.111 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-23 19:07:52.354 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-23 19:07:52.564 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-23 19:07:52.587 -03:00 [INF] Hosting environment: Development
+2026-10-23 19:07:52.589 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-23 19:08:46.145 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-23 19:08:48.424 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 5252.0239 ms
+2026-10-23 19:08:53.314 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 19:08:53.326 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 19:08:54.164 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 1558.6742 ms
+2026-10-23 19:14:06.444 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 431.7872 ms
+2026-10-23 19:19:17.588 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 332.5411 ms
+2026-10-23 19:28:27.185 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 527.8716 ms
+2026-10-23 19:28:43.180 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 1401.7382 ms
+2026-10-23 19:29:04.619 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 61.6259 ms
+2026-10-23 19:29:26.697 -03:00 [INF] HTTP PUT /api/Productos/6 respondió 200 en 987.7181 ms
+2026-10-23 19:29:26.736 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 29.4787 ms
+2026-10-23 19:29:44.053 -03:00 [INF] HTTP PUT /api/Productos/5 respondió 200 en 334.8400 ms
+2026-10-23 19:29:44.273 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 65.1376 ms
+2026-10-23 19:42:00.673 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-23 19:42:00.718 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-23 19:42:00.810 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-23 19:42:00.812 -03:00 [INF] Hosting environment: Development
+2026-10-23 19:42:00.812 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-23 19:42:43.065 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-23 19:42:46.386 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 6229.1288 ms
+2026-10-23 19:42:51.148 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 19:42:51.151 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 19:42:51.449 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 704.6616 ms
+2026-10-23 19:43:40.889 -03:00 [INF] HTTP PUT /api/Productos/3 respondió 200 en 667.5661 ms
+2026-10-23 19:43:40.940 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 34.3280 ms
+2026-10-23 19:43:52.616 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 1054.5834 ms
+2026-10-23 19:44:13.837 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 85.3733 ms
+2026-10-23 19:44:20.930 -03:00 [INF] HTTP PUT /api/Productos/4 respondió 200 en 74.1117 ms
+2026-10-23 19:44:21.026 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 60.6535 ms
+2026-10-23 19:44:29.914 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 802.4002 ms
+2026-10-23 20:18:23.445 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-23 20:18:23.509 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-23 20:18:23.698 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-23 20:18:23.702 -03:00 [INF] Hosting environment: Development
+2026-10-23 20:18:23.719 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-23 20:18:33.555 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-23 20:18:34.668 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 20:18:34.673 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 20:18:36.205 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 4788.7590 ms
+2026-10-23 20:19:00.912 -03:00 [INF] HTTP PUT /api/Productos/3 respondió 200 en 1426.8785 ms
+2026-10-23 20:19:01.208 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 277.9336 ms
+2026-10-23 20:19:40.791 -03:00 [INF] HTTP PUT /api/Productos/5 respondió 200 en 101.3547 ms
+2026-10-23 20:19:40.861 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 43.9900 ms
+2026-10-23 20:34:07.598 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-23 20:34:07.721 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-23 20:34:07.964 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-23 20:34:07.966 -03:00 [INF] Hosting environment: Development
+2026-10-23 20:34:07.972 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-23 20:34:43.419 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-23 20:34:44.488 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 20:34:44.491 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 20:34:45.867 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 5866.7628 ms
+2026-10-23 20:35:07.732 -03:00 [INF] HTTP PUT /api/Productos/5 respondió 200 en 1122.2816 ms
+2026-10-23 20:35:08.393 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 524.2652 ms
+2026-10-23 20:35:16.568 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 908.8949 ms
+2026-10-23 21:55:48.132 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-23 21:55:48.202 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-23 21:55:48.313 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-23 21:55:48.318 -03:00 [INF] Hosting environment: Development
+2026-10-23 21:55:48.319 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\Trabajo Local\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-23 21:56:42.859 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-23 21:56:46.280 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 6027.0628 ms
+2026-10-23 21:56:51.058 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 21:56:51.060 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-23 21:56:51.332 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 399.6678 ms
+2026-10-23 21:57:15.755 -03:00 [INF] HTTP PUT /api/Productos/2 respondió 401 en 62.2620 ms
+2026-10-23 21:57:32.701 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 290.2151 ms
+2026-10-23 21:57:46.667 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 53.2349 ms
+2026-10-23 21:57:58.162 -03:00 [INF] HTTP PUT /api/Productos/5 respondió 200 en 310.9806 ms
+2026-10-23 21:57:58.186 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 19.2306 ms
+2026-10-23 22:05:45.791 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 503.3502 ms
+2026-10-23 22:06:21.248 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 25.9651 ms
+2026-10-23 22:17:15.254 -03:00 [INF] HTTP GET /api/Reportes/StockPdf respondió 404 en 18.4864 ms
+2026-10-23 22:17:31.102 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 300.3687 ms
+2026-10-23 22:17:54.036 -03:00 [INF] HTTP PUT /api/Productos/2 respondió 200 en 143.3368 ms
+2026-10-23 22:17:54.137 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 73.5553 ms
+2026-10-23 22:18:08.690 -03:00 [INF] HTTP GET /api/Reportes/StockPdf respondió 404 en 1.2430 ms
+2026-10-23 22:23:34.669 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 346.4254 ms
+2026-10-23 22:23:45.863 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 217.6278 ms

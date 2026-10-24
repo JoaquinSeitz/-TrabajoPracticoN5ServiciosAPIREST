@@ -28,11 +28,11 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             try
             {
                 var productos = await _context.Productos
-                    .Include(p => p.Categoria)
-                    .Where(p => p.Activo)
-                    .Skip((pageNumber - 1) * pageSize) // Error de tipeo corregido
-                    .Take(pageSize)
-                    .Select(p => new ProductoResponseDTO
+                     .Include(p => p.Categoria)
+                     .Where(p => p.Activo)
+                     .Skip((pageNumber - 1) * pageSize)
+                     .Take(pageSize)
+                     .Select(p => new ProductoResponseDTO
                     {
                         ProductoId = p.ProductoId,
                         Nombre = p.Nombre,

@@ -256,6 +256,179 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error generando el reporte de ingreso.", error = ex.Message });
             }
         }
+        [HttpGet("auditoria-ventas")]
+        [Authorize(Roles = "Admin")] // Protegido solo para administradores
+        public async Task<IActionResult> DescargarAuditoriaVentas()
+        {
+            try
+            {
+                // Traemos todas las salidas históricas con sus detalles
+                var salidas = await _context.SalidaProductos
+                    .Include(s => s.Usuario)
+                    .Include(s => s.Cliente)
+                    .Include(s => s.Detalles)
+                    .OrderByDescending(s => s.Fecha)
+                    .ToListAsync();
+
+                var document = Document.Create(container =>
+                {
+                    container.Page(page =>
+                    {
+                        page.Size(PageSizes.A4);
+                        page.Margin(2, Unit.Centimetre);
+                        page.PageColor(Colors.White);
+                        page.DefaultTextStyle(x => x.FontSize(10));
+
+                        page.Header().Column(col =>
+                        {
+                            col.Item().Text("Auditoría Consolidada de Ventas").SemiBold().FontSize(18).FontColor(Colors.BlueGrey.Darken2);
+                            col.Item().PaddingBottom(1, Unit.Centimetre).Text($"Fecha de emisión: {DateTime.Now:dd/MM/yyyy HH:mm}");
+                        });
+
+                        page.Content().Table(table =>
+                        {
+                            table.ColumnsDefinition(columns =>
+                            {
+                                columns.ConstantColumn(50);  // ID
+                                columns.RelativeColumn();    // Fecha
+                                columns.RelativeColumn();    // Cliente
+                                columns.RelativeColumn();    // Vendedor
+                                columns.ConstantColumn(80);  // Total
+                            });
+
+                            table.Header(header =>
+                            {
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).Text("Ticket").SemiBold();
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).Text("Fecha").SemiBold();
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).Text("Cliente").SemiBold();
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).Text("Atendió").SemiBold();
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).AlignRight().Text("Total").SemiBold();
+                            });
+
+                            decimal granTotal = 0;
+
+                            foreach (var s in salidas)
+                            {
+                                decimal totalVenta = s.Detalles.Sum(d => d.Cantidad * d.PrecioUnitario);
+                                granTotal += totalVenta;
+
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).Text($"#{s.SalidaProductoId:D4}");
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).Text(s.Fecha.ToString("dd/MM/yyyy HH:mm"));
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).Text(s.Cliente?.Nombre ?? "Consumidor Final");
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).Text(s.Usuario?.Nombre ?? "Admin");
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).AlignRight().Text($"${totalVenta:N2}");
+                            }
+
+                            table.Cell().ColumnSpan(4).PaddingTop(10).AlignRight().Text("RECAUDACIÓN TOTAL:").SemiBold().FontSize(12);
+                            table.Cell().PaddingTop(10).AlignRight().Text($"${granTotal:N2}").SemiBold().FontSize(12).FontColor(Colors.Green.Darken2);
+                        });
+
+                        page.Footer().AlignCenter().Text(x =>
+                        {
+                            x.Span("Página ");
+                            x.CurrentPageNumber();
+                            x.Span(" de ");
+                            x.TotalPages();
+                        });
+                    });
+                });
+
+                var pdfBytes = document.GeneratePdf();
+                return File(pdfBytes, "application/pdf", $"Auditoria_Ventas_{DateTime.Now:yyyyMMdd}.pdf");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error generando la auditoría.", error = ex.Message });
+            }
+        }
+        [HttpGet("auditoria-ingresos")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DescargarAuditoriaIngresos()
+        {
+            try
+            {
+                var ingresos = await _context.IngresoProductos
+                    .Include(i => i.Usuario)
+                    .Include(i => i.Detalles)
+                        .ThenInclude(d => d.Producto)
+                    .OrderByDescending(i => i.Fecha)
+                    .ToListAsync();
+
+                var document = Document.Create(container =>
+                {
+                    container.Page(page =>
+                    {
+                        page.Size(PageSizes.A4);
+                        page.Margin(2, Unit.Centimetre);
+                        page.PageColor(Colors.White);
+                        page.DefaultTextStyle(x => x.FontSize(10));
+
+                        page.Header().Column(col =>
+                        {
+                            col.Item().Text("Auditoría Consolidada de Ingresos").SemiBold().FontSize(18).FontColor(Colors.Green.Darken2);
+                            col.Item().PaddingBottom(1, Unit.Centimetre).Text($"Fecha de emisión: {DateTime.Now:dd/MM/yyyy HH:mm}");
+                        });
+
+                        page.Content().Table(table =>
+                        {
+                            table.ColumnsDefinition(columns =>
+                            {
+                                columns.ConstantColumn(40);  // Nro
+                                columns.ConstantColumn(90);  // Fecha
+                                columns.ConstantColumn(80);  // Usuario
+                                columns.RelativeColumn();    // Productos (Ocupa el espacio sobrante)
+                                columns.ConstantColumn(60);  // Unidades
+                            });
+
+                            table.Header(header =>
+                            {
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).Text("Nro").SemiBold();
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).Text("Fecha").SemiBold();
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).Text("Usuario").SemiBold();
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).Text("Detalle de Productos").SemiBold();
+                                header.Cell().Background(Colors.Grey.Lighten2).Padding(2).AlignRight().Text("Unid.").SemiBold();
+                            });
+
+                            int totalUnidades = 0;
+
+                            foreach (var i in ingresos)
+                            {
+                                int cantidadItems = i.Detalles.Sum(d => d.Cantidad);
+                                totalUnidades += cantidadItems;
+
+                                // Armamos un string con viñetas para listar todos los productos de este ingreso
+                                var listaProductos = string.Join("\n", i.Detalles.Select(d => $"• {d.Producto?.Nombre}"));
+
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).Text($"#{i.IngresoProductoId:D4}");
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).Text(i.Fecha.ToString("dd/MM/yy HH:mm"));
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).Text(i.Usuario?.Nombre ?? "Admin");
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).Text(listaProductos);
+                                table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten3).Padding(2).AlignRight().Text(cantidadItems.ToString());
+                            }
+
+                            table.Cell().ColumnSpan(4).PaddingTop(10).AlignRight().Text("TOTAL UNIDADES INGRESADAS:").SemiBold().FontSize(12);
+                            table.Cell().PaddingTop(10).AlignRight().Text(totalUnidades.ToString()).SemiBold().FontSize(12).FontColor(Colors.Green.Darken2);
+                        });
+
+                        page.Footer().AlignCenter().Text(x =>
+                        {
+                            x.Span("Página ");
+                            x.CurrentPageNumber();
+                            x.Span(" de ");
+                            x.TotalPages();
+                        });
+                    });
+                });
+
+                var pdfBytes = document.GeneratePdf();
+                return File(pdfBytes, "application/pdf", $"Auditoria_Ingresos_{DateTime.Now:yyyyMMdd}.pdf");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error generando la auditoría.", error = ex.Message });
+            }
+        }
     }
+
 
 }
