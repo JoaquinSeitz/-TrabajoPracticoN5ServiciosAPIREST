@@ -13,7 +13,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
     public class ProductosController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        private readonly IWebHostEnvironment _env; // Inyectamos el entorno para leer wwwroot
+        private readonly IWebHostEnvironment _env;
 
         public ProductosController(ApplicationDbContext context, IWebHostEnvironment env)
         {
@@ -30,18 +30,18 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 var productos = await _context.Productos
                      .Include(p => p.Categoria)
                      .Where(p => p.Activo)
-                     .Skip((pageNumber - 1) * pageSize)
+                     .Skip((pageNumber - 1) * pageSize) // Corregido el error de sintaxis acá
                      .Take(pageSize)
                      .Select(p => new ProductoResponseDTO
-                    {
-                        ProductoId = p.ProductoId,
-                        Nombre = p.Nombre,
-                        Precio = p.Precio,
-                        Stock = p.Stock,
-                        Imagen = p.Imagen,
-                        CategoriaId = p.CategoriaId,
-                        CategoriaNombre = p.Categoria != null ? p.Categoria.Nombre : "Sin Categoría"
-                    })
+                     {
+                         ProductoId = p.ProductoId,
+                         Nombre = p.Nombre,
+                         Precio = p.Precio,
+                         Stock = p.Stock,
+                         Imagen = p.Imagen,
+                         CategoriaId = p.CategoriaId,
+                         CategoriaNombre = p.Categoria != null ? p.Categoria.Nombre : "Sin Categoría"
+                     })
                     .ToListAsync();
 
                 return Ok(productos);
@@ -90,6 +90,9 @@ namespace tp5_Trani_Joaco_Alex.Controllers
         {
             if (dto == null) return BadRequest(new { mensaje = "Los datos del producto son nulos." });
 
+            // Iniciamos una transacción para garantizar que Producto e Ingreso se guarden juntos
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
             try
             {
                 var nuevoProducto = new Productos
@@ -105,11 +108,38 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 _context.Productos.Add(nuevoProducto);
                 await _context.SaveChangesAsync();
 
-                return Ok(new { mensaje = "Producto creado exitosamente.", ProductoId = nuevoProducto.ProductoId });
+                // Si se crea con stock inicial > 0, registramos el movimiento en el historial real
+                if (dto.Stock > 0)
+                {
+                    var ingresoInicial = new IngresoProductos
+                    {
+                        ProveedorId = dto.ProveedorId,
+                        UsuarioId = 1,   // (Idealmente se saca del token JWT)
+                        Fecha = DateTime.Now,
+                        Detalles = new List<DetalleIngresoProductos>
+                        {
+                            new DetalleIngresoProductos
+                            {
+                                ProductoId = nuevoProducto.ProductoId,
+                                Cantidad = dto.Stock
+                            }
+                        }
+                    };
+
+                    // ESTAS DOS LÍNEAS DEBEN ESTAR ADENTRO DEL IF
+                    _context.IngresoProductos.Add(ingresoInicial);
+                    await _context.SaveChangesAsync();
+                }
+
+                // Confirmamos la transacción
+                await transaction.CommitAsync();
+
+                return Ok(new { mensaje = "Producto creado exitosamente e historial actualizado.", ProductoId = nuevoProducto.ProductoId });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error al crear el producto.", error = ex.Message });
+                await transaction.RollbackAsync();
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error al crear el producto.", error = ex.InnerException?.Message ?? ex.Message });
             }
         }
 
@@ -128,6 +158,9 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 
                 productoExistente.Nombre = dto.Nombre;
                 productoExistente.Precio = dto.Precio;
+
+                // Nota: El stock no debería modificarse desde un PUT, solo mediante ingresos/egresos, 
+                // pero lo mantenemos si lo requieren las reglas de tu sistema.
                 productoExistente.Stock = dto.Stock;
                 productoExistente.Imagen = dto.Imagen;
                 productoExistente.CategoriaId = dto.CategoriaId;
@@ -172,7 +205,6 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 if (archivo == null || archivo.Length == 0)
                     return BadRequest(new { mensaje = "No se envió ninguna imagen." });
 
-                // Validamos tamaño máximo manual por seguridad (ej: 10 MB)
                 if (archivo.Length > 10 * 1024 * 1024)
                     return BadRequest(new { mensaje = "La imagen es muy pesada. Máximo 10MB." });
 
@@ -195,7 +227,6 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 string nombreArchivo = $"prod_{id}_{Guid.NewGuid()}{extension}";
                 string rutaFisica = Path.Combine(carpetaUploads, nombreArchivo);
 
-                // Copiamos el archivo real de forma eficiente (Streaming)
                 using (var stream = new FileStream(rutaFisica, FileMode.Create))
                 {
                     await archivo.CopyToAsync(stream);

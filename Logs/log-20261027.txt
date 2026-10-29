@@ -1,0 +1,45 @@
+2026-10-27 19:50:58.315 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-27 19:50:58.358 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-27 19:50:58.450 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-27 19:50:58.452 -03:00 [INF] Hosting environment: Development
+2026-10-27 19:50:58.453 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-27 19:53:08.985 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-27 19:53:09.851 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-27 19:53:09.853 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-27 19:53:10.987 -03:00 [INF] HTTP GET /api/productos respondió 200 en 4648.8130 ms
+2026-10-27 19:53:11.168 -03:00 [INF] HTTP GET /uploads/prod_7_02d44fd4-0578-41ac-8411-d65eddb38114.webp respondió 404 en 13.4622 ms
+2026-10-27 19:53:11.168 -03:00 [INF] HTTP GET /uploads/prod_2_c2d69d71-c75f-4f7e-8b9e-8bb3ce37055b.png respondió 404 en 13.4623 ms
+2026-10-27 19:53:11.207 -03:00 [INF] HTTP GET /uploads/prod_1_6fe06976-06da-405d-acb4-2395459f02f9.webp respondió 200 en 52.4537 ms
+2026-10-27 19:53:17.885 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 140.4270 ms
+2026-10-27 19:53:24.705 -03:00 [INF] HTTP GET /api/productos respondió 200 en 178.6369 ms
+2026-10-27 19:53:24.745 -03:00 [INF] HTTP GET /uploads/prod_2_c2d69d71-c75f-4f7e-8b9e-8bb3ce37055b.png respondió 404 en 3.3262 ms
+2026-10-27 19:53:24.745 -03:00 [INF] HTTP GET /uploads/prod_7_02d44fd4-0578-41ac-8411-d65eddb38114.webp respondió 404 en 1.4968 ms
+2026-10-27 19:55:25.680 -03:00 [INF] HTTP GET /api/productos respondió 200 en 23.0308 ms
+2026-10-27 19:55:25.808 -03:00 [INF] HTTP GET /uploads/prod_1_6fe06976-06da-405d-acb4-2395459f02f9.webp respondió 304 en 3.1270 ms
+2026-10-27 19:55:25.810 -03:00 [INF] HTTP GET /uploads/prod_2_c2d69d71-c75f-4f7e-8b9e-8bb3ce37055b.png respondió 404 en 5.1105 ms
+2026-10-27 19:55:25.811 -03:00 [INF] HTTP GET /uploads/prod_7_02d44fd4-0578-41ac-8411-d65eddb38114.webp respondió 404 en 3.8254 ms
+2026-10-27 19:55:50.252 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 326.6673 ms
+2026-10-27 19:55:53.933 -03:00 [INF] HTTP GET /api/productos respondió 200 en 40.3614 ms
+2026-10-27 19:55:54.022 -03:00 [INF] HTTP GET /uploads/prod_2_c2d69d71-c75f-4f7e-8b9e-8bb3ce37055b.png respondió 404 en 1.3129 ms
+2026-10-27 19:55:54.023 -03:00 [INF] HTTP GET /uploads/prod_7_02d44fd4-0578-41ac-8411-d65eddb38114.webp respondió 404 en 1.7774 ms
+2026-10-27 19:56:15.975 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 5544.2989 ms
+2026-10-27 20:04:08.124 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-27 20:04:08.222 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-27 20:04:08.402 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-27 20:04:08.405 -03:00 [INF] Hosting environment: Development
+2026-10-27 20:04:08.406 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-27 20:04:35.185 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-27 20:04:36.138 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-27 20:04:36.140 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-27 20:04:38.381 -03:00 [INF] HTTP GET /api/productos respondió 200 en 6584.7092 ms
+2026-10-27 20:04:47.427 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 446.9277 ms
+2026-10-27 20:04:49.591 -03:00 [INF] HTTP GET /api/productos respondió 200 en 279.8363 ms
+2026-10-27 20:04:49.835 -03:00 [INF] HTTP GET /uploads/prod_2_c2d69d71-c75f-4f7e-8b9e-8bb3ce37055b.png respondió 404 en 21.5806 ms
+2026-10-27 20:04:49.835 -03:00 [INF] HTTP GET /uploads/prod_7_02d44fd4-0578-41ac-8411-d65eddb38114.webp respondió 404 en 22.7377 ms
+2026-10-27 20:04:49.843 -03:00 [INF] HTTP GET /uploads/prod_1_6fe06976-06da-405d-acb4-2395459f02f9.webp respondió 304 en 29.4531 ms
+2026-10-27 20:04:52.336 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 78.4688 ms
+2026-10-27 20:05:04.426 -03:00 [INF] HTTP POST /api/IngresoProductos respondió 200 en 1075.1829 ms
+2026-10-27 20:05:04.482 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 36.6601 ms
+2026-10-27 20:05:34.678 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 897.1214 ms
+2026-10-27 20:05:41.837 -03:00 [INF] HTTP GET /api/Reportes/auditoria-ventas respondió 200 en 266.3070 ms
+2026-10-27 20:05:47.815 -03:00 [INF] HTTP GET /api/Reportes/auditoria-ingresos respondió 200 en 181.4458 ms

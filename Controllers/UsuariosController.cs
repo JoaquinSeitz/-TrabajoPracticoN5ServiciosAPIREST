@@ -103,18 +103,30 @@ namespace tp5_Trani_Joaco_Alex.Controllers
         [AllowAnonymous]
         public IActionResult Login([FromBody] LoginDTO login)
         {
-            if (login == null) return BadRequest(new { mensaje = "Datos de inicio de sesión nulos." });
+            if (!ModelState.IsValid)
+            {
+                var errores = string.Join(" ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
+                return BadRequest(new { mensaje = errores });
+            }
 
             try
             {
-                var usuario = _context.Usuarios.FirstOrDefault(u =>
-                    u.Email == login.Email &&
-                    u.Password == login.Password &&
-                    u.Activo == true);
+                // Buscamos al usuario solo por email primero para dar un mensaje específico
+                var usuario = _context.Usuarios.FirstOrDefault(u => u.Email == login.Email);
 
                 if (usuario == null)
                 {
-                    return Unauthorized(new { mensaje = "Email o contraseña incorrectos, o usuario inactivo." });
+                    return Unauthorized(new { mensaje = "El correo electrónico o la contraseña son incorrectos" });
+                }
+
+                if (usuario.Password != login.Password)
+                {
+                    return Unauthorized(new { mensaje = "El correo electrónico o la contraseña son incorrectos" });
+                }
+
+                if (!usuario.Activo)
+                {
+                    return Unauthorized(new { mensaje = "Su cuenta de usuario se encuentra deshabilitada." });
                 }
 
                 var claims = new[]
@@ -138,7 +150,6 @@ namespace tp5_Trani_Joaco_Alex.Controllers
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-                // Devolvemos el token junto con los datos básicos para usar directo en Blazor
                 return Ok(new
                 {
                     token = tokenString,
@@ -150,7 +161,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error interno durante el inicio de sesión.", error = ex.Message });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error interno del servidor.", error = ex.Message });
             }
         }
     }

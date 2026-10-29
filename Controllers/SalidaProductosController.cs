@@ -8,7 +8,7 @@ using tp5_Trani_Joaco_Alex.Data;
 using tp5_Trani_Joaco_Alex.Models;
 using tp5_Trani_Joaco_Alex.DTOs.Request;
 using tp5_Trani_Joaco_Alex.DTOs.Response;
-using tp5_Trani_Joaco_Alex.Services; // Importamos el servicio de correo
+using tp5_Trani_Joaco_Alex.Services;
 
 namespace tp5_Trani_Joaco_Alex.Controllers
 {
@@ -18,7 +18,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
     public class SalidaProductosController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        private readonly IEmailService _emailService; // Inyectamos la dependencia
+        private readonly IEmailService _emailService;
 
         public SalidaProductosController(ApplicationDbContext context, IEmailService emailService)
         {
@@ -143,24 +143,37 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 // 3. Dibujar el Ticket en PDF en memoria
                 var pdfBytes = GenerarTicketPdf(salidaCompleta!);
 
-                // 4. Mandar el mail si el cliente tiene un correo cargado
-                if (salidaCompleta!.Cliente != null && !string.IsNullOrWhiteSpace(salidaCompleta.Cliente.Email))
+                // 4. Lógica inteligente para definir a quién le mandamos el correo
+                string emailDestinatario = salidaCompleta!.Usuario?.Email ?? ""; // Por defecto, al usuario logueado en la app
+
+                // Si seleccionaron un cliente específico (que no sea el ID 1 genérico) y tiene email, lo usamos
+                if (salidaCompleta.Cliente != null && salidaCompleta.Cliente.ClienteId != 1 && !string.IsNullOrWhiteSpace(salidaCompleta.Cliente.Email))
                 {
+                    emailDestinatario = salidaCompleta.Cliente.Email;
+                }
+
+                // Si logramos obtener un email válido (y no es el ficticio del Consumidor Final)
+                if (!string.IsNullOrWhiteSpace(emailDestinatario) && emailDestinatario != "cf@correo.com")
+                {
+                    string nombreDestino = salidaCompleta.Cliente?.ClienteId != 1
+                                           ? salidaCompleta.Cliente!.Nombre
+                                           : (salidaCompleta.Usuario?.Nombre ?? "Cliente");
+
                     string cuerpoHtml = $@"
                         <div style='font-family: Arial, sans-serif; padding: 20px;'>
-                            <h2 style='color: #2c3e50;'>¡Gracias por tu compra, {salidaCompleta.Cliente.Nombre}!</h2>
-                            <p>Tu pedido ha sido procesado exitosamente. Adjuntamos tu ticket de comprobante.</p>
+                            <h2 style='color: #2c3e50;'>¡Gracias por tu compra, {nombreDestino}!</h2>
+                            <p>Tu pedido ha sido procesado exitosamente. Adjuntamos tu comprobante de compra.</p>
                             <p><strong>Total abonado: ${totalVenta:N2}</strong></p>
                             <hr/>
                             <p style='font-size: 12px; color: #7f8c8d;'>Comercio TP5 ITES - Sistema de Gestión</p>
                         </div>";
 
                     await _emailService.EnviarCorreoConPdfAsync(
-                        destinatario: salidaCompleta.Cliente.Email,
-                        asunto: $"Tu Ticket de Compra #{salidaCompleta.SalidaProductoId} - Comercio TP5",
+                        destinatario: emailDestinatario,
+                        asunto: $"Tu Comprobante de Compra #{salidaCompleta.SalidaProductoId} - Comercio TP5",
                         cuerpo: cuerpoHtml,
                         pdfBytes: pdfBytes,
-                        nombreArchivo: $"Ticket_{salidaCompleta.SalidaProductoId}.pdf"
+                        nombreArchivo: $"Comprobante_{salidaCompleta.SalidaProductoId}.pdf"
                     );
                 }
 
@@ -197,43 +210,55 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             }
         }
 
-        // Método privado para generar el PDF (mismo formato que en ReportesController)
+        // --- PDF REDISEÑADO A FORMATO A5 ---
         private byte[] GenerarTicketPdf(SalidaProductos salida)
         {
             var document = Document.Create(container =>
             {
                 container.Page(page =>
                 {
-                    page.ContinuousSize(80, Unit.Millimetre);
-                    page.Margin(5, Unit.Millimetre);
+                    page.Size(PageSizes.A5);
+                    page.Margin(1.5f, Unit.Centimetre);
                     page.PageColor(Colors.White);
-                    page.DefaultTextStyle(x => x.FontSize(9));
+                    page.DefaultTextStyle(x => x.FontSize(10));
 
-                    page.Header().AlignCenter().Column(col =>
+                    page.Header().Column(col =>
                     {
-                        col.Item().Text("COMERCIO TP5").SemiBold().FontSize(14);
-                        col.Item().Text("Ticket de Venta").FontSize(10);
-                        col.Item().Text($"Nro: {salida.SalidaProductoId:D6}");
-                        col.Item().PaddingBottom(5, Unit.Millimetre).Text($"Fecha: {salida.Fecha:dd/MM/yyyy HH:mm}");
-                        col.Item().LineHorizontal(1).LineColor(Colors.Black);
-                        col.Item().AlignLeft().Text($"Cliente: {salida.Cliente?.Nombre ?? "Consumidor Final"}");
-                        col.Item().PaddingBottom(5, Unit.Millimetre).AlignLeft().Text($"Atendido por: {salida.Usuario?.Nombre ?? "Caja"}");
+                        col.Item().AlignCenter().Text("COMERCIO TP5").SemiBold().FontSize(20).FontColor(Colors.BlueGrey.Darken2);
+                        col.Item().AlignCenter().Text("Comprobante de Venta Electrónico").FontSize(11).FontColor(Colors.Grey.Medium);
+                        col.Item().PaddingTop(8).LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
+
+                        col.Item().PaddingVertical(10).Row(row =>
+                        {
+                            row.RelativeItem().Column(c =>
+                            {
+                                c.Item().Text($"Nro de Ticket: #{salida.SalidaProductoId:D6}").SemiBold();
+                                c.Item().Text($"Fecha: {salida.Fecha:dd/MM/yyyy HH:mm}");
+                            });
+                            row.RelativeItem().AlignRight().Column(c =>
+                            {
+                                c.Item().Text($"Cliente: {salida.Cliente?.Nombre ?? "Consumidor Final"}").SemiBold();
+                                c.Item().Text($"Atendido por: {salida.Usuario?.Nombre ?? "Tienda Online"}");
+                            });
+                        });
                     });
 
-                    page.Content().Table(table =>
+                    page.Content().PaddingTop(10).Table(table =>
                     {
                         table.ColumnsDefinition(columns =>
                         {
-                            columns.ConstantColumn(20);
-                            columns.RelativeColumn();
-                            columns.ConstantColumn(40);
+                            columns.ConstantColumn(35);  // Cantidad
+                            columns.RelativeColumn();    // Detalle
+                            columns.ConstantColumn(65);  // Precio Unitario
+                            columns.ConstantColumn(75);  // Subtotal
                         });
 
                         table.Header(header =>
                         {
-                            header.Cell().Text("Cant").SemiBold();
-                            header.Cell().Text("Descripción").SemiBold();
-                            header.Cell().AlignRight().Text("Subt.").SemiBold();
+                            header.Cell().Background(Colors.Grey.Lighten3).Padding(4).Text("Cant").SemiBold();
+                            header.Cell().Background(Colors.Grey.Lighten3).Padding(4).Text("Descripción").SemiBold();
+                            header.Cell().Background(Colors.Grey.Lighten3).Padding(4).AlignRight().Text("P. Unit").SemiBold();
+                            header.Cell().Background(Colors.Grey.Lighten3).Padding(4).AlignRight().Text("Subtotal").SemiBold();
                         });
 
                         decimal totalVenta = 0;
@@ -241,17 +266,21 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                         {
                             var subtotal = detalle.Cantidad * detalle.PrecioUnitario;
                             totalVenta += subtotal;
-                            table.Cell().Text(detalle.Cantidad.ToString());
-                            table.Cell().Text(detalle.Producto?.Nombre ?? "Item");
-                            table.Cell().AlignRight().Text($"${subtotal:N2}");
+
+                            table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten4).Padding(4).Text(detalle.Cantidad.ToString());
+                            table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten4).Padding(4).Text(detalle.Producto?.Nombre ?? "Item");
+                            table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten4).Padding(4).AlignRight().Text($"${detalle.PrecioUnitario:N2}");
+                            table.Cell().BorderBottom(1).BorderColor(Colors.Grey.Lighten4).Padding(4).AlignRight().Text($"${subtotal:N2}");
                         }
-                        table.Cell().ColumnSpan(3).PaddingTop(5).LineHorizontal(1).LineColor(Colors.Black);
-                        table.Cell().ColumnSpan(2).PaddingTop(5).AlignRight().Text("TOTAL:").SemiBold().FontSize(11);
-                        table.Cell().PaddingTop(5).AlignRight().Text($"${totalVenta:N2}").SemiBold().FontSize(11);
+
+                        table.Cell().ColumnSpan(4).PaddingTop(15).AlignRight().Text("TOTAL A PAGAR:").SemiBold().FontSize(11);
+                        table.Cell().ColumnSpan(4).AlignRight().Text($"${totalVenta:N2}").SemiBold().FontSize(16).FontColor(Colors.BlueGrey.Darken3);
                     });
-                    page.Footer().AlignCenter().PaddingTop(10, Unit.Millimetre).Text("¡Gracias por su compra!");
+
+                    page.Footer().AlignCenter().Text("¡Gracias por su compra!").Italic().FontColor(Colors.Grey.Medium);
                 });
             });
+
             return document.GeneratePdf();
         }
     }

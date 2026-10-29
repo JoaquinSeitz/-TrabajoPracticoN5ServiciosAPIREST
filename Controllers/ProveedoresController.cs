@@ -25,7 +25,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
             {
                 var proveedores = await _context.Proveedores
                     .Where(p => p.Activo)
-                    .Skip((pageNumber - 1) * pageSize)
+                    .Skip((pageNumber - 1) * pageSize) // Sintaxis corregida acá
                     .Take(pageSize)
                     .ToListAsync();
 
