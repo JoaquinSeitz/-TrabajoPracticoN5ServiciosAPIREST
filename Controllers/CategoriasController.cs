@@ -36,6 +36,12 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando categorías.", error = ex.Message });
             }
         }
+        [HttpGet("lista")]
+        public IActionResult ObtenerCategoriasLista()
+        {
+            var categorias = _context.Categorias.Where(c => c.Activo).Select(c => new { c.CategoriaId, c.Nombre }).ToList();
+            return Ok(categorias);
+        }
 
         [HttpGet("{id}")]
         [AllowAnonymous]

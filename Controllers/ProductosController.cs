@@ -42,7 +42,7 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                          CategoriaId = p.CategoriaId,
                          CategoriaNombre = p.Categoria != null ? p.Categoria.Nombre : "Sin Categoría"
                      })
-                    .ToListAsync();
+                     .ToListAsync();
 
                 return Ok(productos);
             }
@@ -250,5 +250,126 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 });
             }
         }
+
+        // ==============================================================
+        // NUEVOS ENDPOINTS PARA MANTENIMIENTO WEB (SOLO ADMIN)
+        // ==============================================================
+
+        [HttpGet("inactivos")]
+        [Authorize(Roles = Roles.Admin)]
+        public async Task<IActionResult> GetProductosInactivos()
+        {
+            try
+            {
+                var productos = await _context.Productos
+                     .Include(p => p.Categoria)
+                     .Where(p => !p.Activo)
+                     .OrderBy(p => p.Nombre)
+                     .Select(p => new ProductoResponseDTO
+                     {
+                         ProductoId = p.ProductoId,
+                         Nombre = p.Nombre,
+                         Precio = p.Precio,
+                         Stock = p.Stock,
+                         Imagen = p.Imagen,
+                         CategoriaId = p.CategoriaId,
+                         CategoriaNombre = p.Categoria != null ? p.Categoria.Nombre : "Sin Categoría"
+                     })
+                     .ToListAsync();
+
+                return Ok(productos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando inactivos.", error = ex.Message });
+            }
+        }
+
+        [HttpPut("reactivar/{id}")]
+        [Authorize(Roles = Roles.Admin)]
+        public async Task<IActionResult> ReactivarProducto(int id)
+        {
+            try
+            {
+                var producto = await _context.Productos.FindAsync(id);
+                if (producto == null) return NotFound(new { mensaje = "Producto no encontrado." });
+
+                producto.Activo = true;
+                await _context.SaveChangesAsync();
+
+                return Ok(new { mensaje = "Producto dado de alta nuevamente." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error al reactivar.", error = ex.Message });
+            }
+        }
+
+        [HttpPut("actualizar-stock/{id}")]
+        [Authorize(Roles = Roles.Admin)]
+        public async Task<IActionResult> ActualizarStockManual(int id, [FromBody] NuevoStockDTO dto)
+        {
+            if (dto == null || dto.NuevoStock < 0)
+                return BadRequest(new { mensaje = "Stock inválido." });
+
+            try
+            {
+                var producto = await _context.Productos.FindAsync(id);
+                if (producto == null || !producto.Activo)
+                    return NotFound(new { mensaje = "Producto no encontrado o inactivo." });
+
+                producto.Stock = dto.NuevoStock;
+                await _context.SaveChangesAsync();
+
+                return Ok(new { mensaje = "Stock actualizado correctamente." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error al modificar stock.", error = ex.Message });
+            }
+        }
+        [HttpPut("actualizar-precio/{id}")]
+        [Authorize(Roles = Roles.Admin)]
+        public async Task<IActionResult> ActualizarPrecioManual(int id, [FromBody] NuevoPrecioDTO dto)
+        {
+            if (dto == null || dto.NuevoPrecio <= 0)
+                return BadRequest(new { mensaje = "Precio inválido. Debe ser mayor a 0." });
+
+            try
+            {
+                var producto = await _context.Productos.FindAsync(id);
+                if (producto == null || !producto.Activo)
+                    return NotFound(new { mensaje = "Producto no encontrado o inactivo." });
+
+                producto.Precio = dto.NuevoPrecio;
+                await _context.SaveChangesAsync();
+
+                return Ok(new { mensaje = "Precio actualizado correctamente." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error al modificar precio.", error = ex.Message });
+            }
+        }
+    
+
+    // DTO simple auxiliar para recibir el nuevo stock en el JSON (Ya lo tienes)
+    public class NuevoStockDTO
+    {
+        public int NuevoStock { get; set; }
+    }
+
+    // NUEVO DTO auxiliar para recibir el nuevo precio
+    public class NuevoPrecioDTO
+    {
+        public decimal NuevoPrecio { get; set; }
+    }
+
+}
+
+    // DTO simple auxiliar para recibir el nuevo stock en el JSON
+    public class NuevoStockDTO
+    {
+        public int NuevoStock { get; set; }
     }
 }

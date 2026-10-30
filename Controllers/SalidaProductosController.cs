@@ -152,21 +152,34 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                     emailDestinatario = salidaCompleta.Cliente.Email;
                 }
 
+                // NUEVO: Si desde el frontend web enviaron un correo a mano, sobrescribe el destino.
+                if (!string.IsNullOrWhiteSpace(dto.EmailManual))
+                {
+                    emailDestinatario = dto.EmailManual;
+                }
+
                 // Si logramos obtener un email válido (y no es el ficticio del Consumidor Final)
                 if (!string.IsNullOrWhiteSpace(emailDestinatario) && emailDestinatario != "cf@correo.com")
                 {
+                    // Definir a quién saludamos
                     string nombreDestino = salidaCompleta.Cliente?.ClienteId != 1
                                            ? salidaCompleta.Cliente!.Nombre
                                            : (salidaCompleta.Usuario?.Nombre ?? "Cliente");
 
+                    // NUEVO AGREGADO: Si es Consumidor Final (ID 1) y enviaron un email a mano desde la Web
+                    if (salidaCompleta.Cliente?.ClienteId == 1 && !string.IsNullOrWhiteSpace(dto.EmailManual))
+                    {
+                        nombreDestino = "Estimado/a Cliente";
+                    }
+
                     string cuerpoHtml = $@"
-                        <div style='font-family: Arial, sans-serif; padding: 20px;'>
-                            <h2 style='color: #2c3e50;'>¡Gracias por tu compra, {nombreDestino}!</h2>
-                            <p>Tu pedido ha sido procesado exitosamente. Adjuntamos tu comprobante de compra.</p>
-                            <p><strong>Total abonado: ${totalVenta:N2}</strong></p>
-                            <hr/>
-                            <p style='font-size: 12px; color: #7f8c8d;'>Comercio TP5 ITES - Sistema de Gestión</p>
-                        </div>";
+                    <div style='font-family: Arial, sans-serif; padding: 20px;'>
+                        <h2 style='color: #2c3e50;'>¡Gracias por tu compra, {nombreDestino}!</h2>
+                        <p>Tu pedido ha sido procesado exitosamente. Adjuntamos tu comprobante de compra.</p>
+                        <p><strong>Total abonado: ${totalVenta:N2}</strong></p>
+                        <hr/>
+                        <p style='font-size: 12px; color: #7f8c8d;'>Comercio TP5 ITES - Sistema de Gestión</p>
+                    </div>";
 
                     await _emailService.EnviarCorreoConPdfAsync(
                         destinatario: emailDestinatario,

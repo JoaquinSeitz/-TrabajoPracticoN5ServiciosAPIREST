@@ -1,0 +1,430 @@
+2026-10-29 16:05:54.749 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 16:05:54.817 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 16:05:54.938 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 16:05:54.940 -03:00 [INF] Hosting environment: Development
+2026-10-29 16:05:54.941 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 16:12:35.089 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 16:12:35.139 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 16:12:35.231 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 16:12:35.234 -03:00 [INF] Hosting environment: Development
+2026-10-29 16:12:35.238 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 16:18:29.097 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 16:18:29.147 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 16:18:29.271 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 16:18:29.273 -03:00 [INF] Hosting environment: Development
+2026-10-29 16:18:29.274 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 16:26:59.974 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 16:27:00.015 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 16:27:00.094 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 16:27:00.095 -03:00 [INF] Hosting environment: Development
+2026-10-29 16:27:00.096 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 16:47:56.400 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 16:47:56.443 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 16:47:56.984 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 16:47:57.114 -03:00 [INF] Hosting environment: Development
+2026-10-29 16:47:57.115 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 16:48:03.284 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 11.2919 ms
+2026-10-29 16:48:04.825 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 16:48:06.509 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 3198.1342 ms
+2026-10-29 16:48:12.591 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 2.1584 ms
+2026-10-29 16:48:12.798 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 16:48:12.800 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 16:48:13.100 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 503.6646 ms
+2026-10-29 16:48:25.562 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.2800 ms
+2026-10-29 16:48:30.668 -03:00 [INF] Correo enviado exitosamente a admin@email.com
+2026-10-29 16:48:30.681 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 5105.0074 ms
+2026-10-29 16:48:30.798 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.2797 ms
+2026-10-29 16:48:30.824 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 19.0930 ms
+2026-10-29 17:20:04.015 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 17:20:04.055 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 17:20:04.133 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 17:20:04.135 -03:00 [INF] Hosting environment: Development
+2026-10-29 17:20:04.135 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 17:24:21.595 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 14.6062 ms
+2026-10-29 17:24:23.401 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 17:24:24.912 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 3283.9886 ms
+2026-10-29 18:38:54.681 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 18:38:54.747 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 18:38:54.900 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 18:38:54.905 -03:00 [INF] Hosting environment: Development
+2026-10-29 18:38:54.919 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 18:58:27.573 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 18:58:27.622 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 18:58:27.730 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 18:58:27.731 -03:00 [INF] Hosting environment: Development
+2026-10-29 18:58:27.732 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 18:58:40.423 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 17.5697 ms
+2026-10-29 18:58:42.322 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 18:58:43.017 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 18:58:43.020 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 18:58:44.923 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 4468.1232 ms
+2026-10-29 18:58:45.090 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 2.1535 ms
+2026-10-29 18:58:45.238 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 134.1351 ms
+2026-10-29 18:59:02.115 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.4456 ms
+2026-10-29 18:59:08.264 -03:00 [INF] Correo enviado exitosamente a erii09@live.com.ar
+2026-10-29 18:59:08.271 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 6143.2618 ms
+2026-10-29 18:59:08.380 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.3856 ms
+2026-10-29 18:59:08.412 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 26.0273 ms
+2026-10-29 18:59:08.424 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1308 ms
+2026-10-29 18:59:08.441 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 10.6081 ms
+2026-10-29 18:59:35.335 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.3490 ms
+2026-10-29 18:59:39.268 -03:00 [INF] Correo enviado exitosamente a JoaquinSeitz@gmail.com
+2026-10-29 18:59:39.271 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 3920.3033 ms
+2026-10-29 18:59:39.300 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.2520 ms
+2026-10-29 18:59:39.371 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 42.2068 ms
+2026-10-29 18:59:39.389 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1030 ms
+2026-10-29 18:59:39.406 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 11.4976 ms
+2026-10-29 19:05:23.712 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 0.1315 ms
+2026-10-29 19:05:23.927 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 204.1206 ms
+2026-10-29 19:22:48.446 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 19:22:48.493 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 19:22:48.586 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 19:22:48.588 -03:00 [INF] Hosting environment: Development
+2026-10-29 19:22:48.589 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 19:26:26.480 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 10.1194 ms
+2026-10-29 19:26:28.110 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 19:26:29.651 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 3141.3101 ms
+2026-10-29 19:26:48.044 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 1.6843 ms
+2026-10-29 19:26:48.141 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 66.8257 ms
+2026-10-29 19:26:54.642 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1232 ms
+2026-10-29 19:26:54.914 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 19:26:54.920 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 19:26:55.199 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 549.3533 ms
+2026-10-29 19:26:55.262 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1083 ms
+2026-10-29 19:26:55.362 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 85.4469 ms
+2026-10-29 19:28:12.520 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.9161 ms
+2026-10-29 19:28:17.356 -03:00 [INF] Correo enviado exitosamente a erii09@live.com.ar
+2026-10-29 19:28:17.365 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 4835.0860 ms
+2026-10-29 19:28:17.385 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.2171 ms
+2026-10-29 19:28:17.422 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 22.2864 ms
+2026-10-29 19:28:17.433 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1030 ms
+2026-10-29 19:28:17.446 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 9.0327 ms
+2026-10-29 19:29:19.790 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.6900 ms
+2026-10-29 19:29:24.272 -03:00 [INF] Correo enviado exitosamente a JoaquinSeitz@gmail.com
+2026-10-29 19:29:24.275 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 4476.9196 ms
+2026-10-29 19:29:24.298 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.2269 ms
+2026-10-29 19:29:24.363 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 44.3448 ms
+2026-10-29 19:29:24.374 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.3539 ms
+2026-10-29 19:29:24.398 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 17.2197 ms
+2026-10-29 19:32:33.774 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 19:32:33.837 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 19:32:33.948 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 19:32:33.960 -03:00 [INF] Hosting environment: Development
+2026-10-29 19:32:33.961 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 19:32:51.225 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 19:32:53.787 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 4998.3907 ms
+2026-10-29 19:32:57.858 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 19:32:57.861 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 19:32:58.313 -03:00 [INF] HTTP GET /api/productos respondió 200 en 807.7128 ms
+2026-10-29 19:32:58.533 -03:00 [INF] HTTP GET /uploads/prod_2_c2d69d71-c75f-4f7e-8b9e-8bb3ce37055b.png respondió 404 en 21.1846 ms
+2026-10-29 19:32:58.537 -03:00 [INF] HTTP GET /uploads/prod_1_6fe06976-06da-405d-acb4-2395459f02f9.webp respondió 304 en 24.5667 ms
+2026-10-29 19:32:58.537 -03:00 [INF] HTTP GET /uploads/prod_8_ce551f57-d9c9-4ada-a16e-212588df882c.webp respondió 304 en 25.4811 ms
+2026-10-29 19:32:58.537 -03:00 [INF] HTTP GET /uploads/prod_9_7e53d4a7-0ff3-43fc-9b0b-789c74d69db3.webp respondió 304 en 25.5946 ms
+2026-10-29 19:33:15.798 -03:00 [INF] Correo enviado exitosamente a Joaquin@gmail.com
+2026-10-29 19:33:15.811 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 6049.8254 ms
+2026-10-29 19:37:49.598 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 31.9951 ms
+2026-10-29 19:37:51.286 -03:00 [INF] HTTP GET /api/productos respondió 200 en 34.4207 ms
+2026-10-29 19:37:51.346 -03:00 [INF] HTTP GET /uploads/prod_2_c2d69d71-c75f-4f7e-8b9e-8bb3ce37055b.png respondió 404 en 23.9698 ms
+2026-10-29 19:38:01.305 -03:00 [INF] Correo enviado exitosamente a Joaquin@gmail.com
+2026-10-29 19:38:01.309 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 3815.6918 ms
+2026-10-29 19:59:10.316 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 221.1269 ms
+2026-10-29 19:59:13.597 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 89.5987 ms
+2026-10-29 19:59:13.978 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 19:59:13.996 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 19:59:14.094 -03:00 [INF] HTTP GET /api/Categorias respondió 200 en 445.9295 ms
+2026-10-29 19:59:14.144 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 19:59:14.147 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 19:59:14.202 -03:00 [INF] HTTP GET /api/Proveedores respondió 200 en 88.3690 ms
+2026-10-29 19:59:24.906 -03:00 [INF] HTTP POST /api/IngresoProductos respondió 200 en 151.9356 ms
+2026-10-29 19:59:24.947 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 29.3091 ms
+2026-10-29 19:59:35.608 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 130.2201 ms
+2026-10-29 20:13:18.706 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 5.2697 ms
+2026-10-29 20:13:18.876 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 154.0056 ms
+2026-10-29 20:13:24.462 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1312 ms
+2026-10-29 20:13:24.498 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 31.8158 ms
+2026-10-29 20:13:24.616 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1263 ms
+2026-10-29 20:13:24.664 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 36.9005 ms
+2026-10-29 20:32:20.425 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 20:32:20.480 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 20:32:20.704 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 20:32:20.900 -03:00 [INF] Hosting environment: Development
+2026-10-29 20:32:20.902 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 20:32:25.770 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 23.6326 ms
+2026-10-29 20:32:27.722 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 20:32:28.269 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 20:32:28.272 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 20:32:29.283 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 3483.5815 ms
+2026-10-29 20:32:29.430 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 2.3881 ms
+2026-10-29 20:32:29.508 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 71.2450 ms
+2026-10-29 20:41:52.478 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 35.2222 ms
+2026-10-29 20:41:52.798 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 313.8915 ms
+2026-10-29 20:41:52.981 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.2276 ms
+2026-10-29 20:41:53.006 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 13.7964 ms
+2026-10-29 20:42:13.747 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.5886 ms
+2026-10-29 20:42:18.400 -03:00 [INF] Correo enviado exitosamente a caja1@email.com
+2026-10-29 20:42:18.407 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 4647.3271 ms
+2026-10-29 20:42:18.501 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1869 ms
+2026-10-29 20:42:18.533 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 27.8911 ms
+2026-10-29 20:42:18.548 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1154 ms
+2026-10-29 20:42:18.558 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 5.4541 ms
+2026-10-29 20:49:35.027 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 20:49:35.093 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 20:49:35.206 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 20:49:35.208 -03:00 [INF] Hosting environment: Development
+2026-10-29 20:49:35.210 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 20:50:31.031 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 11.7746 ms
+2026-10-29 20:50:32.791 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 20:50:35.580 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 4521.3872 ms
+2026-10-29 21:00:10.465 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 21:00:10.531 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 21:00:10.623 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 21:00:10.625 -03:00 [INF] Hosting environment: Development
+2026-10-29 21:00:10.626 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 21:01:04.792 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 10.6863 ms
+2026-10-29 21:01:06.390 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 21:01:08.091 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 3272.7911 ms
+2026-10-29 21:01:11.116 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 5.4575 ms
+2026-10-29 21:01:11.345 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 21:01:11.347 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 21:01:11.585 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 460.5435 ms
+2026-10-29 21:01:19.217 -03:00 [INF] HTTP OPTIONS /api/EntradaProductos respondió 204 en 0.4184 ms
+2026-10-29 21:01:19.249 -03:00 [INF] HTTP POST /api/EntradaProductos respondió 404 en 7.4825 ms
+2026-10-29 21:01:25.657 -03:00 [INF] HTTP OPTIONS /api/EntradaProductos respondió 204 en 0.2489 ms
+2026-10-29 21:01:25.676 -03:00 [INF] HTTP POST /api/EntradaProductos respondió 404 en 7.8014 ms
+2026-10-29 21:01:27.822 -03:00 [INF] HTTP POST /api/EntradaProductos respondió 404 en 1.0503 ms
+2026-10-29 21:24:35.652 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 21:24:35.708 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 21:24:35.818 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 21:24:35.845 -03:00 [INF] Hosting environment: Development
+2026-10-29 21:24:35.847 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 21:25:00.915 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 12.2546 ms
+2026-10-29 21:25:02.546 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 21:25:04.155 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 3214.6336 ms
+2026-10-29 21:25:09.093 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 1.6603 ms
+2026-10-29 21:25:09.362 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 21:25:09.364 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 21:25:09.713 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 613.7475 ms
+2026-10-29 21:25:09.806 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.2494 ms
+2026-10-29 21:25:10.229 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 400.8676 ms
+2026-10-29 21:25:18.460 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.3203 ms
+2026-10-29 21:25:24.167 -03:00 [INF] Correo enviado exitosamente a caja1@email.com
+2026-10-29 21:25:24.179 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 5710.5053 ms
+2026-10-29 21:25:24.307 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.2240 ms
+2026-10-29 21:25:24.364 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 44.4958 ms
+2026-10-29 21:25:24.375 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1277 ms
+2026-10-29 21:25:24.388 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 8.0839 ms
+2026-10-29 21:26:16.657 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 0.4449 ms
+2026-10-29 21:26:16.674 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 10.1079 ms
+2026-10-29 21:26:18.830 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1015 ms
+2026-10-29 21:26:18.857 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 16.8557 ms
+2026-10-29 21:26:19.138 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.3130 ms
+2026-10-29 21:26:19.192 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 47.2606 ms
+2026-10-29 21:26:19.224 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.1191 ms
+2026-10-29 21:26:19.253 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 21.9562 ms
+2026-10-29 21:26:38.306 -03:00 [INF] HTTP OPTIONS /api/IngresoProductos respondió 204 en 1.1499 ms
+2026-10-29 21:26:38.454 -03:00 [INF] HTTP POST /api/IngresoProductos respondió 200 en 134.0261 ms
+2026-10-29 21:26:38.510 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1720 ms
+2026-10-29 21:26:38.587 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 66.8210 ms
+2026-10-29 21:26:38.599 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.1024 ms
+2026-10-29 21:26:38.609 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 6.2026 ms
+2026-10-29 21:26:38.620 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.0905 ms
+2026-10-29 21:26:38.637 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 8.7880 ms
+2026-10-29 21:27:08.493 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.0992 ms
+2026-10-29 21:27:08.557 -03:00 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-10-29 21:27:08.600 -03:00 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-10-29 21:27:08.624 -03:00 [INF] HTTP POST /api/Productos respondió 200 en 119.2599 ms
+2026-10-29 21:27:08.666 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 16.1879 ms
+2026-10-29 21:27:08.685 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.1460 ms
+2026-10-29 21:27:08.704 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 13.7780 ms
+2026-10-29 21:27:08.716 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.0916 ms
+2026-10-29 21:27:08.733 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 10.5745 ms
+2026-10-29 21:27:18.081 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1286 ms
+2026-10-29 21:27:18.102 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 17.1659 ms
+2026-10-29 21:27:18.119 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.2864 ms
+2026-10-29 21:27:18.132 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 7.1534 ms
+2026-10-29 21:27:24.452 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.1574 ms
+2026-10-29 21:27:27.549 -03:00 [INF] Correo enviado exitosamente a admin@email.com
+2026-10-29 21:27:27.552 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 3092.5501 ms
+2026-10-29 21:27:27.583 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.0854 ms
+2026-10-29 21:27:27.628 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 13.3793 ms
+2026-10-29 21:27:27.656 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.0790 ms
+2026-10-29 21:27:27.676 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 13.5858 ms
+2026-10-29 22:35:13.322 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1444 ms
+2026-10-29 22:35:13.498 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 170.2478 ms
+2026-10-29 22:35:13.521 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.0790 ms
+2026-10-29 22:35:13.534 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 6.8727 ms
+2026-10-29 22:35:13.545 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.0909 ms
+2026-10-29 22:35:13.556 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 6.7872 ms
+2026-10-29 22:35:21.997 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.0908 ms
+2026-10-29 22:35:22.025 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 22.6056 ms
+2026-10-29 22:35:22.048 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1679 ms
+2026-10-29 22:35:22.060 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 5.9257 ms
+2026-10-29 22:35:22.978 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 17.0712 ms
+2026-10-29 22:35:23.086 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.9972 ms
+2026-10-29 22:35:23.145 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 14.6062 ms
+2026-10-29 22:35:23.170 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.0759 ms
+2026-10-29 22:35:23.224 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 31.1936 ms
+2026-10-29 22:35:57.667 -03:00 [INF] HTTP OPTIONS /api/Productos/5 respondió 204 en 0.1461 ms
+2026-10-29 22:35:57.702 -03:00 [INF] HTTP DELETE /api/Productos/5 respondió 200 en 29.1303 ms
+2026-10-29 22:35:57.732 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.3895 ms
+2026-10-29 22:35:57.763 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 21.2128 ms
+2026-10-29 22:35:57.776 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.1107 ms
+2026-10-29 22:35:57.787 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 6.3660 ms
+2026-10-29 22:35:57.798 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.1296 ms
+2026-10-29 22:35:57.813 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 10.2505 ms
+2026-10-29 22:40:26.913 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 22:40:26.984 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 22:40:27.111 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 22:40:27.144 -03:00 [INF] Hosting environment: Development
+2026-10-29 22:40:27.158 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 22:41:35.660 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 22:41:37.365 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 401 en 3811.9100 ms
+2026-10-29 22:41:43.447 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 221.4621 ms
+2026-10-29 22:41:47.150 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 22:41:47.152 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 22:41:47.428 -03:00 [INF] HTTP GET /api/productos respondió 200 en 643.5078 ms
+2026-10-29 22:41:47.622 -03:00 [INF] HTTP GET /uploads/prod_2_c2d69d71-c75f-4f7e-8b9e-8bb3ce37055b.png respondió 404 en 17.0907 ms
+2026-10-29 22:41:47.632 -03:00 [INF] HTTP GET /uploads/prod_9_7e53d4a7-0ff3-43fc-9b0b-789c74d69db3.webp respondió 304 en 27.0087 ms
+2026-10-29 22:41:47.632 -03:00 [INF] HTTP GET /uploads/prod_8_ce551f57-d9c9-4ada-a16e-212588df882c.webp respondió 304 en 27.4596 ms
+2026-10-29 22:41:50.369 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 43.7688 ms
+2026-10-29 22:41:50.468 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 22:41:50.471 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 22:41:50.550 -03:00 [INF] HTTP GET /api/Categorias respondió 200 en 112.5095 ms
+2026-10-29 22:41:50.632 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 22:41:50.634 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 22:41:50.672 -03:00 [INF] HTTP GET /api/Proveedores respondió 200 en 73.5939 ms
+2026-10-29 23:04:55.509 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 47.5500 ms
+2026-10-29 23:04:55.797 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 261.3255 ms
+2026-10-29 23:05:37.075 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 0.4750 ms
+2026-10-29 23:05:37.096 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 13.8417 ms
+2026-10-29 23:05:40.197 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.2072 ms
+2026-10-29 23:05:40.356 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 148.8632 ms
+2026-10-29 23:05:40.461 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 1.9939 ms
+2026-10-29 23:05:40.618 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 144.5396 ms
+2026-10-29 23:05:40.692 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.2604 ms
+2026-10-29 23:05:40.749 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 46.7346 ms
+2026-10-29 23:05:54.727 -03:00 [INF] HTTP OPTIONS /api/Reportes/stock respondió 204 en 0.1815 ms
+2026-10-29 23:05:55.608 -03:00 [INF] HTTP GET /api/Reportes/stock respondió 200 en 850.7506 ms
+2026-10-29 23:06:03.547 -03:00 [INF] HTTP OPTIONS /api/Reportes/auditoria-ventas respondió 204 en 0.2939 ms
+2026-10-29 23:06:03.839 -03:00 [INF] HTTP GET /api/Reportes/auditoria-ventas respondió 200 en 285.5806 ms
+2026-10-29 23:06:08.943 -03:00 [INF] HTTP OPTIONS /api/Reportes/auditoria-ingresos respondió 204 en 0.1531 ms
+2026-10-29 23:06:09.145 -03:00 [INF] HTTP GET /api/Reportes/auditoria-ingresos respondió 200 en 184.5214 ms
+2026-10-29 23:06:15.910 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1969 ms
+2026-10-29 23:06:15.967 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 33.2537 ms
+2026-10-29 23:06:16.017 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.1312 ms
+2026-10-29 23:06:16.036 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 9.8166 ms
+2026-10-29 23:06:16.074 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.1671 ms
+2026-10-29 23:06:16.093 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 11.7019 ms
+2026-10-29 23:17:56.901 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 23:17:56.959 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 23:17:57.118 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 23:17:57.121 -03:00 [INF] Hosting environment: Development
+2026-10-29 23:17:57.123 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 23:21:43.600 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 14.4174 ms
+2026-10-29 23:21:45.829 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 23:21:46.757 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 23:21:46.762 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 23:21:48.279 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 4646.0532 ms
+2026-10-29 23:21:48.457 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 9.5339 ms
+2026-10-29 23:21:48.664 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 169.7707 ms
+2026-10-29 23:22:31.742 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 1.3858 ms
+2026-10-29 23:22:31.922 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 174.0561 ms
+2026-10-29 23:22:31.993 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.1287 ms
+2026-10-29 23:22:32.025 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 26.8270 ms
+2026-10-29 23:22:32.092 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.1478 ms
+2026-10-29 23:22:32.121 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 25.1371 ms
+2026-10-29 23:22:34.498 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1374 ms
+2026-10-29 23:22:34.532 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 28.0952 ms
+2026-10-29 23:22:34.554 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.2074 ms
+2026-10-29 23:22:34.583 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 23.5842 ms
+2026-10-29 23:22:37.774 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1117 ms
+2026-10-29 23:22:37.809 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 24.5019 ms
+2026-10-29 23:22:37.860 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.4498 ms
+2026-10-29 23:22:37.885 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 12.9276 ms
+2026-10-29 23:22:37.921 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.1736 ms
+2026-10-29 23:22:37.937 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 11.3661 ms
+2026-10-29 23:23:02.593 -03:00 [INF] HTTP OPTIONS /api/IngresoProductos respondió 204 en 1.2106 ms
+2026-10-29 23:23:03.430 -03:00 [INF] HTTP POST /api/IngresoProductos respondió 200 en 831.3933 ms
+2026-10-29 23:23:03.492 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1527 ms
+2026-10-29 23:23:03.534 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 26.4839 ms
+2026-10-29 23:23:20.193 -03:00 [INF] HTTP OPTIONS /api/Reportes/auditoria-ventas respondió 204 en 0.6812 ms
+2026-10-29 23:23:21.137 -03:00 [INF] HTTP GET /api/Reportes/auditoria-ventas respondió 200 en 920.3899 ms
+2026-10-29 23:23:41.008 -03:00 [INF] HTTP OPTIONS /api/Reportes/auditoria-ventas respondió 204 en 0.0981 ms
+2026-10-29 23:23:41.135 -03:00 [INF] HTTP GET /api/Reportes/auditoria-ventas respondió 200 en 116.4845 ms
+2026-10-29 23:23:57.493 -03:00 [INF] HTTP OPTIONS /api/Reportes/auditoria-ingresos respondió 204 en 0.1605 ms
+2026-10-29 23:23:57.654 -03:00 [INF] HTTP GET /api/Reportes/auditoria-ingresos respondió 200 en 151.6292 ms
+2026-10-29 23:24:22.922 -03:00 [INF] HTTP OPTIONS /api/Reportes/auditoria-ingresos respondió 204 en 0.5100 ms
+2026-10-29 23:24:23.032 -03:00 [INF] HTTP GET /api/Reportes/auditoria-ingresos respondió 200 en 94.2098 ms
+2026-10-29 23:24:36.975 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1636 ms
+2026-10-29 23:24:37.064 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 82.4361 ms
+2026-10-29 23:24:37.110 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.1177 ms
+2026-10-29 23:24:37.124 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 8.7401 ms
+2026-10-29 23:24:37.157 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.2318 ms
+2026-10-29 23:24:37.174 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 12.3831 ms
+2026-10-29 23:25:07.159 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 0.1022 ms
+2026-10-29 23:25:07.276 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 400 en 106.7277 ms
+2026-10-29 23:25:11.318 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 400 en 4.0213 ms
+2026-10-29 23:27:38.594 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 23:27:38.801 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 23:27:38.924 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 23:27:38.929 -03:00 [INF] Hosting environment: Development
+2026-10-29 23:27:38.931 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 23:28:52.361 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 16.8209 ms
+2026-10-29 23:28:53.108 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 400 en 701.2437 ms
+2026-10-29 23:29:03.380 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 1.2648 ms
+2026-10-29 23:29:04.686 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 23:29:06.155 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 2737.6974 ms
+2026-10-29 23:29:17.066 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 0.2684 ms
+2026-10-29 23:29:17.142 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 70.8871 ms
+2026-10-29 23:29:42.479 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 0.4204 ms
+2026-10-29 23:29:42.700 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 210.8374 ms
+2026-10-29 23:29:46.743 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.2528 ms
+2026-10-29 23:29:47.003 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 23:29:47.006 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 23:29:47.364 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 610.5520 ms
+2026-10-29 23:29:47.538 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1683 ms
+2026-10-29 23:29:47.785 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 190.8337 ms
+2026-10-29 23:30:22.908 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 1.7252 ms
+2026-10-29 23:30:27.983 -03:00 [INF] Correo enviado exitosamente a caja1@email.com
+2026-10-29 23:30:27.999 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 5079.0527 ms
+2026-10-29 23:30:28.093 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1815 ms
+2026-10-29 23:30:28.122 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 23.6240 ms
+2026-10-29 23:30:28.136 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.0970 ms
+2026-10-29 23:30:28.154 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 13.4498 ms
+2026-10-29 23:54:02.209 -03:00 [INF] Now listening on: https://localhost:7133
+2026-10-29 23:54:02.272 -03:00 [INF] Now listening on: http://localhost:5253
+2026-10-29 23:54:02.378 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-29 23:54:02.384 -03:00 [INF] Hosting environment: Development
+2026-10-29 23:54:02.386 -03:00 [INF] Content root path: C:\Users\Joaquin Seitz\Desktop\GitHub Repositorios\-TrabajoPracticoN5ServiciosAPIREST
+2026-10-29 23:54:37.416 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 16.8207 ms
+2026-10-29 23:54:39.695 -03:00 [WRN] No store type was specified for the decimal property 'PrecioUnitario' on entity type 'DetalleSalidaProductos'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-10-29 23:54:40.400 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 23:54:40.403 -03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-10-29 23:54:41.995 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 4545.1110 ms
+2026-10-29 23:54:42.135 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 1.1028 ms
+2026-10-29 23:54:42.223 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 83.1562 ms
+2026-10-29 23:54:57.207 -03:00 [INF] HTTP OPTIONS /api/SalidaProductos respondió 204 en 0.5200 ms
+2026-10-29 23:55:01.997 -03:00 [INF] Correo enviado exitosamente a caja1@email.com
+2026-10-29 23:55:02.005 -03:00 [INF] HTTP POST /api/SalidaProductos respondió 200 en 4786.8914 ms
+2026-10-29 23:55:02.138 -03:00 [INF] HTTP OPTIONS /api/Reportes/ticket/27 respondió 204 en 0.2007 ms
+2026-10-29 23:55:02.274 -03:00 [INF] HTTP GET /api/Reportes/ticket/27 respondió 200 en 124.3173 ms
+2026-10-29 23:55:02.376 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1327 ms
+2026-10-29 23:55:02.427 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 42.0395 ms
+2026-10-29 23:55:02.447 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.2077 ms
+2026-10-29 23:55:02.464 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 6.8580 ms
+2026-10-29 23:57:12.037 -03:00 [INF] HTTP OPTIONS /api/Usuarios/login respondió 204 en 0.3016 ms
+2026-10-29 23:57:12.153 -03:00 [INF] HTTP POST /api/Usuarios/login respondió 200 en 73.6229 ms
+2026-10-29 23:57:17.292 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.0969 ms
+2026-10-29 23:57:17.328 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 28.7112 ms
+2026-10-29 23:57:17.506 -03:00 [INF] HTTP OPTIONS /api/Categorias/lista respondió 204 en 0.1200 ms
+2026-10-29 23:57:17.558 -03:00 [INF] HTTP GET /api/Categorias/lista respondió 200 en 33.6065 ms
+2026-10-29 23:57:17.629 -03:00 [INF] HTTP OPTIONS /api/Proveedores/lista respondió 204 en 0.1602 ms
+2026-10-29 23:57:17.658 -03:00 [INF] HTTP GET /api/Proveedores/lista respondió 200 en 18.3503 ms
+2026-10-29 23:57:42.490 -03:00 [INF] HTTP OPTIONS /api/Productos/10 respondió 204 en 0.3335 ms
+2026-10-29 23:57:42.557 -03:00 [INF] HTTP DELETE /api/Productos/10 respondió 200 en 60.3642 ms
+2026-10-29 23:57:42.634 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1155 ms
+2026-10-29 23:57:42.665 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 25.8305 ms
+2026-10-29 23:57:44.630 -03:00 [INF] HTTP OPTIONS /api/Productos respondió 204 en 0.1173 ms
+2026-10-29 23:57:44.676 -03:00 [INF] HTTP GET /api/Productos respondió 200 en 38.1485 ms
+2026-10-29 23:57:44.721 -03:00 [INF] HTTP OPTIONS /api/Clientes/lista respondió 204 en 0.1300 ms
+2026-10-29 23:57:44.743 -03:00 [INF] HTTP GET /api/Clientes/lista respondió 200 en 16.6913 ms

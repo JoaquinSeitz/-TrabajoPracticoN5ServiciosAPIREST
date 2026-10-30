@@ -36,6 +36,12 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando proveedores.", error = ex.Message });
             }
         }
+        [HttpGet("lista")]
+        public IActionResult ObtenerProveedoresLista()
+        {
+            var proveedores = _context.Proveedores.Where(p => p.Activo).Select(p => new { p.ProveedorId, p.RazonSocial }).ToList();
+            return Ok(proveedores);
+        }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProveedor(int id)

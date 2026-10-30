@@ -47,7 +47,24 @@ namespace tp5_Trani_Joaco_Alex.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando el listado de clientes.", error = ex.Message });
             }
         }
+        // GET: api/Clientes/lista (Lista plana exclusiva para el desplegable del frontend)
+        [HttpGet("lista")]
+        public IActionResult ObtenerClientesLista()
+        {
+            try
+            {
+                var clientes = _context.Clientes
+                    .Where(c => c.Activo == true)
+                    .Select(c => new { c.ClienteId, c.Nombre }) // Solo traemos lo necesario
+                    .ToList();
 
+                return Ok(clientes);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = "Error recuperando la lista.", error = ex.Message });
+            }
+        }
         // POST: api/Clientes (Alta)
         [HttpPost]
         public IActionResult CrearCliente([FromBody] Clientes cliente)
