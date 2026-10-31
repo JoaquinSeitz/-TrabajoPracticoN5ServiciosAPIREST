@@ -16,11 +16,14 @@ try
 {
     Log.Information("Iniciando aplicación Web API TP5...");
     var builder = WebApplication.CreateBuilder(args);
-    // Permitir subida de archivos pesados (hasta 50 MB) para la vida real
-    builder.WebHost.ConfigureKestrel(options =>
-    {
-        options.Limits.MaxRequestBodySize = 52428800;
-    });
+
+    // COMENTADO: Kestrel choca con el In-Process de IIS en MonsterASP y bota la conexión.
+    // (El límite de subida de 50MB lo configuraremos luego en el web.config si es necesario)
+    // builder.WebHost.ConfigureKestrel(options =>
+    // {
+    //     options.Limits.MaxRequestBodySize = 52428800;
+    // });
+
     QuestPDF.Settings.License = LicenseType.Community;
 
     // 2. Conectar Serilog al Host leyendo appsettings.json
@@ -78,16 +81,13 @@ try
                     };
                 });
 
-    // ESTA LÍNEA ES CRUCIAL Y FALTABA:
     builder.Services.AddAuthorization();
-
     builder.Services.AddEndpointsApiExplorer();
 
     // 3. Configuración de Swagger con soporte para Token JWT (Botón Authorize)
     builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "Trabajo Práctico N° 5 - Servicios API REST", Version = "v1" });
-
         c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
             Name = "Authorization",
@@ -95,9 +95,7 @@ try
             Scheme = "bearer",
             BearerFormat = "JWT",
             In = ParameterLocation.Header,
-
         });
-
         c.AddSecurityRequirement(new OpenApiSecurityRequirement
         {
             {
@@ -126,13 +124,30 @@ try
     app.UseSwagger();
     app.UseSwaggerUI();
 
-    app.UseHttpsRedirection();
+    // COMENTADO: MonsterASP ya maneja el HTTPS. Forzarlo aquí causa un ERR_CONNECTION_RESET.
+    // app.UseHttpsRedirection(); 
+
     app.UseStaticFiles();
 
     app.UseCors("PoliticaPermisiva");
     app.UseAuthentication();
     app.UseAuthorization();
     app.MapControllers();
+
+    using (var scope = app.Services.CreateScope())
+    {
+        try
+        {
+            var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            context.Database.Migrate();
+            Log.Information("Migraciones aplicadas exitosamente en la base de datos.");
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error crítico al intentar aplicar las migraciones ");
+        }
+    }
+
     app.Run();
 }
 catch (Exception ex) when (ex is not HostAbortedException)
